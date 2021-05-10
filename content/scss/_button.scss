@@ -1,0 +1,16 @@
+
+.btn{
+  border-radius: 2px;
+  border: 1px solid black;
+  padding:0.5rem;
+  &#{&}-primary{
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: setTextColor($primary-color);
+  }
+  &#{&}-secondary{
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    color: setTextColor($secondary-color);
+  }
+}

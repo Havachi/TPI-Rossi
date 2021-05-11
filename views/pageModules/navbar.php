@@ -12,8 +12,8 @@
       </div>
       <div class="navbar-list-nav">
         <div class="search">
-          <input type="text" name="search" placeholder="Recherche...">
-          <span class="material-icons">search</span>
+          <input class="search-bar" type="text" name="search" placeholder="Recherche...">
+          <button type="submit" name="search"><i class="material-icons">search</i></button>
         </div>
         <div class="productFullList">
           <a href="index.php">Tous les produits</a>

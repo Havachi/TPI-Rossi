@@ -7,15 +7,18 @@
 //Modules Specifics
 @import "navbar";
 @import "button";
+@import "cards";
 body{
   background-color: color.scale($primary-color, $lightness: +98%);
   color: setTextColor($primary-color);
   height: 100vh;
-  font-family: open_sansregular;
   line-height: 1;
+  overflow-x:hidden;
+  overflow-y: hidden;
 }
 h1, h2, h3{
   font-weight: 400;
+  font-family: 'Roboto', sans-serif;
 }
 a{
   color: setTextColor($primary-color);
@@ -31,8 +34,10 @@ header{
   position: relative;
   width: 100%;
   padding: 0rem;
+  font-family: 'Roboto', sans-serif;
 }
 main{
   height: 100%;
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }

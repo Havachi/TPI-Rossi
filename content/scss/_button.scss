@@ -13,4 +13,10 @@
     border-color: $secondary-color;
     color: setTextColor($secondary-color);
   }
+  &#{&}-light{
+    padding: 0;
+    background-color: #5efc82;
+    border-color: #5efc82;
+    color: setTextColor(#5efc82);
+  }
 }

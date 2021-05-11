@@ -1,4 +1,5 @@
 .navbar{
+  height: 7vh;
   border-radius: 2px;
   border-bottom: 1px solid black;
   &-list{
@@ -26,6 +27,7 @@
       flex-grow: 2;
       .search{
         display: inline;
+        margin-right: 10px;
         &-bar{
           padding-left: 4px;
           padding-top: 0.5rem;
@@ -33,16 +35,23 @@
           display: inline;
           vertical-align: middle;
         }
-        span{
+        i{
           display: inline;
           vertical-align: middle;
+          //background-color: $primary-color;
+          margin: 0px 10px 0px 10px;
+          height: 10px;
         }
       }
       .productFullList{
         display: inline;
+        font-size: 1.5rem;
+        vertical-align: middle;
       }
       .productDiscountList{
         display: inline;
+        font-size: 1.5rem;
+        vertical-align: middle;
       }
     }
     &-auth{

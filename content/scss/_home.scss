@@ -1,4 +1,107 @@
 .homePage{
-  
-
+display: flex;
+  .left-container{
+    float: left;
+    display: inline-block;
+    height: 100%;
+    width: 25vw;
+    .filters{
+      &-shop-list{
+        &-item{
+          input{
+            display:inline;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 50%;
+          }
+          select{
+            display:inline;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+          label{
+            display:block;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+  .center-container{
+    overflow-y:scroll;
+    text-align-last: center;
+    display: inline-block;
+    height: 100%;
+    width: 50vw;
+    background-color: lightgrey;
+    .products-list{
+      display: grid ;
+      grid-template-columns: repeat(3,1fr);
+      grid-column-gap: 5px;
+      &-item{
+        .card{
+          &-body{
+            .product-price{
+              padding-top: 1rem;
+              padding-bottom: 0.5rem;
+              text-align-last: left;
+              color: red;
+            }
+            .product-rate{
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+              text-align-last: left;
+              .active{
+                color: orange;
+              }
+            }
+            .product-btns{
+              padding: 4%;
+              margin-bottom: 4%;
+              overflow-wrap: normal;
+              a{
+                padding: 4%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .right-container{
+    text-align-last: left;
+    float: right;
+    display: inline-block;
+    height: 100%;
+    width: 25vw;
+    .cart{
+      &-title{
+        padding-top: 1rem;
+        padding-left: 1rem;
+        span{
+          float: right;
+          padding-right: 1rem;
+        }
+      }
+      &-list{
+        margin-top: 10px;
+        margin-left: 15px;
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        &-header{
+          border-bottom: 1px solid black;
+          padding-bottom: 5px
+        }
+        &-body{
+          td{
+            padding: 10px;
+          }
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }

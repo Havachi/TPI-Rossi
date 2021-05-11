@@ -1,8 +1,8 @@
-$primary-color:#00FF37;
-$secondary-color: #E31E08;
+$primary-color:#00c853;
+$secondary-color: #c81400;
 $navbar-background: #fff;
-$primary-textover-color:#fff;
-$secondary-textover-color:#000;
+$text-ondark:#fff;
+$text-onlight:#000;
 
 *{
   box-sizing: border-box;
@@ -15,9 +15,9 @@ $secondary-textover-color:#000;
 }
 @function setTextColor($color) {
   @if (lightness($color) > 40%) {
-    @return $secondary-textover-color;
+    @return $text-ondark;
   } @else {
-    @return $primary-textover-color;
+    @return $text-onlight;
   }
 }
 @mixin media-sm {

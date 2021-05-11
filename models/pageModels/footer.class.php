@@ -1,5 +1,5 @@
 <?php
-
+namespace BioLocalUI;
 class Footer
 {
   public string $content

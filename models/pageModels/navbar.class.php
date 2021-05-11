@@ -1,6 +1,6 @@
 <?php
 
-namespace BioLocal;
+namespace BioLocalUI;
 class Navbar
 {
   public string $content;

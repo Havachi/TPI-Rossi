@@ -4,6 +4,8 @@
  * This class represent the usual controller we see, but in Poo to optimize this part.
  */
 namespace BioLocal;
+use BioLocalUI\Page as Page;
+use BioLocalUI\Navbar as Navbar;
 class Controller
 {
   /**
@@ -12,11 +14,11 @@ class Controller
    * @var Page $page
    */
   public Page $page;
+  public array $pageData = array();
   function __construct()
   {
 
   }
-
   /**
    * This core function is used to display page easyily
    *
@@ -24,6 +26,9 @@ class Controller
    */
   static function displayPage($pageName){
     self::loadPageModels();
+    if ($pageName == 'home') {
+      $pageData['products'] = self::loadProducts();
+    }
     $page = new Page($pageName,file_get_contents("views/pages/" . $pageName . ".php"));
     $page->addNavbar(new Navbar(file_get_contents("views/pageModules/navbar.php")));
     require "views/layout.php";
@@ -38,5 +43,10 @@ class Controller
     }else {
       return false;
     }
+  }
+  static function loadProducts(){
+    require_once "models/productCRUD.php";
+    $productList = getProductsList();
+    return $productList;
   }
 }

@@ -3,7 +3,7 @@
 /**
  * The Page class, the object it creates contains everything a page usualy contains (content, title,etc..)
  */
-namespace BioLocal;
+namespace BioLocalUI;
 class Page
 {
   /**
@@ -17,15 +17,18 @@ class Page
    */
   public string $content;
   /**
-   * this represent the footer of the page, can be empty
+   * this represent the navbar of the page, can be empty
    * @var Footer
    */
   public Navbar $navbar;
 
-  function __construct($title, $content)
+  public array $data;
+
+  function __construct($title, $content, $data = null)
   {
     $this->title = $title;
     $this->content = $content;
+    $this->data = ($data===null) ? "" : $data;
   }
   function addNavbar(Navbar $navbar){
     $this->navbar = $navbar;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   padding: 0;
@@ -99,16 +100,160 @@
   padding: 10px;
 }
 
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register-container .register-form {
+  padding: 1rem;
+  margin-top: 15vh;
+  background-color: #fff;
+  border: 1px solid black;
+}
+.register-container .register-form-tab {
+  display: none;
+}
+.register-container .register-form-tab .tab-label {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgrey;
+}
+.register-container .register-form-tab-inputGroup {
+  padding: 1rem;
+}
+.register-container .register-form-tab-inputGroup label {
+  padding-bottom: 1rem;
+  display: block;
+}
+.register-container .register-form-tab-inputGroup input {
+  padding: 0.5rem;
+  display: block;
+}
+.register-container .register-form-tab-inputGroup .consent {
+  display: inline;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.register-container .register-form-tab-inputGroup .consent:checked {
+  background-color: #fafafa;
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+}
+.register-container .register-form-tab-inputGroup .consent:checked:after {
+  content: "⤫";
+  font-size: 14px;
+  font-weight: 800;
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  color: black;
+}
+.register-container .register-form-tab-inputGroup .consent-label {
+  display: inline;
+  vertical-align: middle;
+  font-size: 0.6rem;
+}
+.register-container .register-form-btns {
+  display: grid;
+}
+.register-container .register-form-links {
+  padding-top: 1rem;
+  display: inline-block;
+}
+.register-container .register-form-links .linkToLogin {
+  display: block;
+  font-size: 0.8rem;
+}
+.register-container .register-form-progress .step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+.register-container .register-form-progress .step .active {
+  opacity: 1;
+}
+
+.login {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-container .login-form {
+  padding: 1rem;
+  margin-top: 15vh;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.login-container .login-form-label {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgrey;
+  font-size: 1.8rem;
+}
+.login-container .login-form-inputGroup {
+  padding: 1rem;
+}
+.login-container .login-form-inputGroup label {
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  display: block;
+}
+.login-container .login-form-inputGroup input {
+  padding: 0.5rem;
+  width: 100%;
+  display: block;
+}
+.login-container .login-form-btns {
+  text-align: center;
+}
+.login-container .login-form-links {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+.login-container .login-form-links .forgotPassword {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+.login-container .login-form-links .linkToRegister {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
 .navbar {
-  height: 7vh;
-  border-radius: 2px;
-  border-bottom: 1px solid black;
+  height: 10vh;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 .navbar-list {
+  padding: 1rem 0 1rem 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0px;
 }
 .navbar-list-brand {
   flex-grow: 1;
@@ -181,6 +326,12 @@
 }
 .btn.btn-light {
   padding: 0;
+  background-color: #5efc82;
+  border-color: #5efc82;
+  color: #fff;
+}
+.btn.btn-next {
+  float: right;
   background-color: #5efc82;
   border-color: #5efc82;
   color: #fff;
@@ -268,6 +419,7 @@ main {
   height: 100%;
   width: 100%;
   font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 /*# sourceMappingURL=master.css.map */

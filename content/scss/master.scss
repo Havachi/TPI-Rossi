@@ -4,6 +4,8 @@
 @import "config";
 //Pages specifics
 @import "home";
+@import "register";
+@import "login";
 //Modules Specifics
 @import "navbar";
 @import "button";
@@ -40,4 +42,5 @@ main{
   height: 100%;
   width: 100%;
   font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
 }

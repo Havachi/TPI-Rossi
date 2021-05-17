@@ -1,0 +1,51 @@
+.login{
+  height: 100vh;
+  background-color: $logReg-color;
+  &-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-form{
+      padding: 1rem;
+      margin-top: 15vh;
+      background-color: #fff;
+      @include elevation;
+      &-label{
+        text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid lightgrey;
+        font-size: 1.8rem;
+      }
+      &-inputGroup{
+        padding: 1rem;
+        label{
+          padding-bottom: 1rem;
+          font-size: 1rem;
+          display: block;
+        }
+        input{
+          padding: 0.5rem;
+          width: 100%;
+          display: block;
+        }
+      }
+      &-btns{
+        text-align: center;
+      }
+      &-links{
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1rem;
+        .forgotPassword{
+          display: inline-block;
+          font-size: 0.8rem;
+        }
+        .linkToRegister{
+          display: inline-block;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

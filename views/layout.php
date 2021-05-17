@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $page->title ?></title>
+    <title><?= $page->title ?></title>
     <link rel="stylesheet" href="content/css/master.css">
     <link rel="stylesheet" href="node_modules\material-design-icons\iconfont\material-icons.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -10,10 +10,11 @@
   </head>
   <body>
     <header>
-    <?php echo $page->navbar->content ?>
+    <?= $page->navbar->content ?>
     </header>
     <main>
-      <?php echo $page->content ?>
+      <?= $page->content ?>
     </main>
   </body>
+  <script type="text/javascript" src="content/scripts/register.js"></script>
 </html>

@@ -19,4 +19,10 @@
     border-color: #5efc82;
     color: setTextColor(#5efc82);
   }
+  &#{&}-next{
+    float:right;
+    background-color: #5efc82;
+    border-color: #5efc82;
+    color: setTextColor(#5efc82);
+  }
 }

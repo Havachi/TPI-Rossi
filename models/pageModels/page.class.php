@@ -24,7 +24,7 @@ class Page
 
   public array $data;
 
-  function __construct($title, $content, $data = null)
+  function __construct($title, $content, $data = array())
   {
     $this->title = $title;
     $this->content = $content;

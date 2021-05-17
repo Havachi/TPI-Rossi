@@ -19,7 +19,4 @@ class Product
     $this->price = $initPrice;
     $this->supplyerID = $supplyerID;
   }
-  function addToDB(){
-
-  }
 }

@@ -1,4 +1,17 @@
 <div class="login">
+  
+<?php if (isset($error)): ?>
+  <div class="error-container">
+    <div class="error">
+
+        <div class="error-text">
+          <p><?php echo $error; ?></p>
+        </div>
+
+    </div>
+  </div>
+<?php endif; ?>
+
   <div class="login-container">
     <form class="login-form" action="index.php?action=login" method="post">
         <h2 class="login-form-label">Connexion</h2>

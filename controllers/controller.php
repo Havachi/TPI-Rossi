@@ -25,12 +25,11 @@ class Controller
    * @param  string $pageName the name of the page to display(filename w/out extention)
    */
   static function displayPage($pageName){
+    ob_start();
     self::loadPageModels();
-    if ($pageName == 'home') {
-      $pageData['products'] = self::loadProducts();
-    }
-    $page = new Page($pageName,file_get_contents("views/pages/" . $pageName . ".php"));
+    $page = new Page($pageName,self::getPageContent("views/pages/" . $pageName . ".php"));
     $page->addNavbar(new Navbar(file_get_contents("views/pageModules/navbar.php")));
+    ob_get_clean();
     require "views/layout.php";
   }
   static function loadPageModels(){
@@ -45,8 +44,34 @@ class Controller
     }
   }
   static function loadProducts(){
-    require_once "models/productCRUD.php";
+    require_once "models/CRUD/productCRUD.php";
     $productList = getProductsList();
     return $productList;
+  }
+  static function loadSupplyers(){
+    require_once "models/CRUD/supplyerCRUD.php";
+    $supplyerList = getSupplyersList();
+    return $supplyerList;
+  }
+  static function getPageContent($path){
+    $pageData = self::getPageData(basename($path,".php"));
+    ob_start();
+    require $path;
+    $content = ob_get_clean();
+    return $content;
+  }
+  /**
+   * This function get the page Data (e.g Products list, supplyer list etc..) that are evaluated before the page is send to the browser
+   * @var [type]
+   */
+  static function getPageData($pageName){
+    $pageData = array();
+    switch ($pageName) {
+      case 'home':
+        $pageData['products']=self::loadProducts();
+        $pageData['supplyers']=self::loadSupplyers();
+        break;
+    }
+    return $pageData;
   }
 }

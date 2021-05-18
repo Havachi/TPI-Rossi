@@ -4,7 +4,7 @@
  *
  */
 
-require_once "DBConnection.class.php";
+require_once "models/DBConnection.class.php";
 use biolocal\DBConnection as DB;
 /**
  * This function fetch all product in the database

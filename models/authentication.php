@@ -98,5 +98,10 @@ class Account {
       return false;
     }
   }
+  static function logout(){
+    unset($_SESSION['Account']);
+    unset($_SESSION['Token']);
+    header('Location: /');
+  }
 
 }

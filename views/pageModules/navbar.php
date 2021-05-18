@@ -26,7 +26,7 @@ require_once "models/gravatar.php";
           <a href="index.php">Actions</a>
         </div>
       </div>
-      <?php if (isset($_SESSION)): ?>
+      <?php if (isset($_SESSION['Account'])): ?>
         <div class="navbar-list-user">
           <div class="user-name">
             <a href="#">
@@ -46,7 +46,7 @@ require_once "models/gravatar.php";
                   <a href="#">Espace Client</a>
                 </div>
                 <div class="menu-list-item">
-                  <a href="#">Se déconnecter</a>
+                  <a href="index.php?action=logout">Se déconnecter</a>
                 </div>
               </div>
             </div>

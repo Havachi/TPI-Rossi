@@ -3,7 +3,7 @@
     <form class="register-form" action="index.php?action=register" method="post">
       <div class="register-form-tab">
         <div class="tab-label">
-          <h3>Créer un compte</h3>
+          <h2>Créer un compte</h2>
         </div>
         <div class="register-form-tab-inputGroup">
           <label for="emailAddress">Adresse E-mail</label>

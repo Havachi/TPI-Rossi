@@ -17,7 +17,8 @@
         font-size: 1.8rem;
       }
       &-inputGroup{
-        padding: 1rem;
+        width: 100%;
+        padding: 1rem 0 1rem 0;
         label{
           padding-bottom: 1rem;
           font-size: 1rem;
@@ -31,6 +32,10 @@
       }
       &-btns{
         text-align: center;
+        button{
+          width: 100%;
+        }
+
       }
       &-links{
         padding-top: 1rem;

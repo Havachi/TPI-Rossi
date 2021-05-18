@@ -1,4 +1,6 @@
 .register{
+  height: 100vh;
+  background-color: $logReg-color;
   &-container{
     display: flex;
     justify-content: center;
@@ -61,31 +63,36 @@
         }
       }
       &-btns{
-        display: grid;
+        display: block;
+        width: 100%;
       }
       &-links{
         padding-top: 1rem;
-        display: inline-block;
+        display: block;
         .linkToLogin{
           display: block;
           font-size: 0.8rem;
         }
       }
-      &-progress{
-        .step {
-          height: 15px;
-          width: 15px;
-          margin: 0 2px;
-          background-color: #bbbbbb;
-          border: none;
-          border-radius: 50%;
-          display: inline-block;
-          opacity: 0.5;
-          .active {
-            opacity: 1;
-          }
-        }
-      }
+
     }
+  }
+}
+.register-form-progress{
+  text-align: center;
+  display: block;
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+
+  }
+  .step.active {
+    opacity: 1;
   }
 }

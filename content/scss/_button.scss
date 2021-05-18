@@ -2,7 +2,10 @@
 .btn{
   border-radius: 2px;
   border: 1px solid black;
-  padding:0.5rem;
+  padding:2%;
+  white-space: nowrap;
+  @include elevation;
+  @include transition-ease;
   &#{&}-primary{
     background-color: $primary-color;
     border-color: $primary-color;
@@ -24,5 +27,8 @@
     background-color: #5efc82;
     border-color: #5efc82;
     color: setTextColor(#5efc82);
+  }
+  &:hover{
+    @include elevationHover;
   }
 }

@@ -16,8 +16,7 @@ function postRedirect($postData){
           break;
         case 'login':
           require_once "authentication.php";
-          $l = new Login();
-          $l->loginAccount();
+          Login::loginAccount($_POST['userEmailAddress'],$_POST['userPassword']);
           break;
         }
       }

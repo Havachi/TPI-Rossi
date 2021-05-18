@@ -4,20 +4,22 @@ require_once "DBConnection.class.php";
 
 class Login
 {
-  function loginAccount($emailAddress,$password){
-    if (isLoginCorrect($emailAddress,$password)) {
+  static function loginAccount($emailAddress,$password){
+    if (self::isLoginCorrect($emailAddress,$password)) {
       $db = new DBConnection();
       $query = "SELECT userFirstName,userLastName,userAddressRoad,userAddressRoadNumber,userAddressPostalCode,userPhoneNumber,userEmailAddress,userPassword FROM users WHERE userEmailAddress = :userEmailAddress";
       $params = array('userEmailAddress' => $emailAddress);
-      $account = new Account($db->query($query,$params));
+      $account = new Account($db->query($query,$params)[0]);
+      $account->createSession();
+      unset($account['userPassword']);
     }
   }
-  function isLoginCorrect($emailAddress,$password){
+  static function isLoginCorrect($emailAddress,$password){
     try {
       $db = new DBConnection;
       $dbpsw = $db->single("SELECT userPassword FROM users WHERE userEmailAddress = :userEmailAddress",array("userEmailAddress"=>$emailAddress));
       if ($dbpsw != false && !empty($dbpsw)) {
-        if (password_verify($psw,$dbpsw)) {
+        if (password_verify($password,$dbpsw)) {
           return true;
         }else {
           return false;

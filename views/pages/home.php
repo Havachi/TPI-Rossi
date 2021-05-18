@@ -16,7 +16,6 @@
             <?php foreach ($pageData['supplyers'] as $supplyer): ?>
               <option value=""><?php echo $supplyer['supplyerName'] ?></option>
             <?php endforeach; ?>
-
           </select>
         </li>
       </ul>

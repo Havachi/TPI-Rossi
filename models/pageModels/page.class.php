@@ -30,7 +30,10 @@ class Page
     $this->content = $content;
     $this->data = ($data===null) ? "" : $data;
   }
-  function addNavbar(Navbar $navbar){
+  function addNavbar(string $navbarPath){
+    ob_start();
+    require $navbarPath;
+    $navbar = new Navbar(ob_get_clean());
     $this->navbar = $navbar;
   }
 }

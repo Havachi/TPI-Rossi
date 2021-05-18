@@ -16,5 +16,10 @@
       <?= $page->content ?>
     </main>
   </body>
-  <script type="text/javascript" src="content/scripts/register.js"></script>
+  <?php if ($page->title == 'register'): ?>
+    <script type="text/javascript" src="content/scripts/register.js"></script>
+  <?php endif; ?>
+  <?php if ($page->title == 'home'): ?>
+    <script type="text/javascript" src="content/scripts/home.js"></script>
+  <?php endif; ?>
 </html>

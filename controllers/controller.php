@@ -28,7 +28,7 @@ class Controller
     ob_start();
     self::loadPageModels();
     $page = new Page($pageName,self::getPageContent("views/pages/" . $pageName . ".php"));
-    $page->addNavbar(new Navbar(file_get_contents("views/pageModules/navbar.php")));
+    $page->addNavbar("views/pageModules/navbar.php");
     ob_get_clean();
     require "views/layout.php";
   }

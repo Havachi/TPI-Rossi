@@ -2,6 +2,7 @@
 namespace BioLocal;
 require "controllers/controller.php";
 require "models/redirect.php";
+require "models/authentication.php";
 session_start();
 /**
  * This file is the entry point for this web site.

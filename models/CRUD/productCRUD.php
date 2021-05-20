@@ -10,10 +10,21 @@ use biolocal\DBConnection as DB;
  * This function fetch all product in the database
  * @return array The full list of products in the database
  */
-function getProductsList(){
+function getProductsList(array $supplyerList = array()){
   $db = new DB();
-  $query ="SELECT * FROM products";
-  $result = $db->query($query);
+  if (count($supplyerList) == 1) {
+      $query ="SELECT * FROM `products` INNER JOIN `supplyers` ON `products`.`supplyerID`=`supplyers`.`supplyerID` WHERE `supplyerCP` = :supplyerCP";
+      $result = $db->query($query,array('supplyerCP'=>$supplyerList[0]['supplyerCP']));
+  }elseif(count($supplyerList) <= 0){
+    $query ="SELECT * FROM `products`";
+    $result = $db->query($query);
+  }else {
+    foreach ($supplyerList as $supplyer) {
+      $query ="SELECT * FROM `products` INNER JOIN `supplyers` ON `products`.`supplyerID`=`supplyers`.`supplyerID` WHERE `supplyerCP` = :supplyerCP";
+      $result[$supplyer['supplyerCP']] = $db->query($query,array('supplyerCP'=>$supplyer['supplyerCP']));
+    }
+  }
+
   return $result;
 }
 /**

@@ -43,14 +43,15 @@ class Controller
       return false;
     }
   }
-  static function loadProducts(){
+  static function loadProducts(array $supplyerList = array()){
+    // TODO: Should load only the products from supplyers within the range
     require_once "models/CRUD/productCRUD.php";
-    $productList = getProductsList();
+    $productList = getProductsList($supplyerList);
     return $productList;
   }
-  static function loadSupplyers(){
+  static function loadSupplyers(array $pcList = array()){
     require_once "models/CRUD/supplyerCRUD.php";
-    $supplyerList = getSupplyersList();
+    $supplyerList = getSupplyersList($pcList);
     return $supplyerList;
   }
   static function getPageContent($path){
@@ -68,8 +69,16 @@ class Controller
     $pageData = array();
     switch ($pageName) {
       case 'home':
-        $pageData['products']=self::loadProducts();
-        $pageData['supplyers']=self::loadSupplyers();
+        if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
+          require_once "models/distanceCalculation.php";
+          $PClist = getNearbyPostalCode($_SESSION['Account']->addressPostalCode);
+          $pageData['supplyers']=self::loadSupplyers($PClist);
+          $pageData['products']=self::loadProducts($pageData['supplyers']);
+        }else {
+          $pageData['supplyers']=self::loadSupplyers();
+          $pageData['products']=self::loadProducts($pageData['supplyers']);
+        }
+
         break;
     }
     return $pageData;

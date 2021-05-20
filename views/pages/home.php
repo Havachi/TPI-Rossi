@@ -23,49 +23,83 @@
   </div>
   <div class="center-container">
     <div class="products-list">
-    <?php foreach ($pageData['products'] as $product): ?>
-      <!--Single item-->
-      <div class="products-list-item">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-header-image">
-              <?php if (file_exists("content\assets\products\\".$product['productID'] . ".jpg")): ?>
-                <img src="content\assets\products\<?php echo $product['productID'] ?>.jpg" alt="">
-                <?php else: ?>
-                <img src="content\assets\products\<?php echo $product['productID'] ?>.png" alt="">
-              <?php endif; ?>
+      <?php if (isset($_SESSION) && !empty($_SESSION)): ?>
+        <?php foreach ($pageData['products'] as $product): ?>
+
+          <!--Single item-->
+          <div class="products-list-item">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-image">
+                  <?php if (file_exists("content/assets/products". $product['productImagePath'] . ".jpg")): ?>
+                    <img src="content/assets/products<?php echo  $product['productImagePath'] ?>.jpg" alt="">
+                    <?php else: ?>
+                    <img src="content/assets/products<?php echo$product['productImagePath']  ?>.png" alt="">
+                  <?php endif; ?>
+                </div>
+              </div>
+              <div class="card-separator"></div>
+              <div class="card-body">
+                <div class="card-body-title">
+                  <?php echo $product['productName'] ?>
+                </div>
+                <div class="product-price">
+                  <?php echo $product['productPrice'] ?> / pièce
+                </div>
+                <div class="product-rate">
+                  <?php echo 'sauce' ?>
+                </div>
+                <div class="product-btns">
+                  <a class="btn btn-light" href="index.php?action=addtocart&product=<?php echo $product['productID'] ?>" >Ajouter au panier</a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="card-separator"></div>
-          <div class="card-body">
-            <div class="card-body-title">
-              <?php echo $product['productName'] ?>
-            </div>
-            <div class="product-price">
-              <?php echo $product['productPrice'] ?> / pièce
-            </div>
-            <div class="product-rate">
-              <span class="material-icons">star_outline</span>
-              <span class="material-icons">star_outline</span>
-              <span class="material-icons">star_outline</span>
-              <span class="material-icons">star_outline</span>
-              <span class="material-icons">star_outline</span>
-            </div>
-            <div class="product-btns">
-              <a class="btn btn-light" href="index.php">Ajouter au panier</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <?php // TODO: do that now ?>
-      <!--This single item will be the template for the future dinamically generated list-->
-      <?php endforeach; ?>
+          <?php endforeach; ?>
+
+        <?php else: ?>
+          <?php foreach ($pageData['products'] as $products): ?>
+              <?php foreach ($products as $product): ?>
+                <!--Single item-->
+                <div class="products-list-item">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="card-header-image">
+                        <?php if (file_exists("content/assets/products". $product['productImagePath'] . ".jpg")): ?>
+                          <img src="content/assets/products<?php echo  $product['productImagePath'] ?>.jpg" alt="">
+                          <?php else: ?>
+                          <img src="content/assets/products<?php echo $product['productImagePath']  ?>.png" alt="">
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                    <div class="card-separator"></div>
+                    <div class="card-body">
+                      <div class="card-body-title">
+                        <?php echo $product['productName'] ?>
+                      </div>
+                      <div class="product-price">
+                        <?php echo $product['productPrice'] ?> CHF / pièce
+                      </div>
+                      <div class="product-rate">
+                        <?php echo $product['supplyerCP'] ?>
+                      </div>
+                      <div class="product-btns">
+                        <a class="btn btn-light" href="index.php">Ajouter au panier</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+          <?php endforeach; ?>
+      <?php endif; ?>
+
+
     </div>
   </div>
   <div class="right-container">
     <div class="cart">
       <h2 class="cart-title">Panier <?php if (!isset($_SESSION['cart']) && empty($_SESSION['cart'])): ?>Vide<?php endif; ?>
-      <a href="index.php"><span class="material-icons">arrow_forward</span></h2></a>
+      <a href="#" onclick="toggleCart();return false;"><span class="material-icons">arrow_forward</span></h2></a>
       <table class="cart-list" cellpadding="10">
         <thead class="cart-list-header">
           <tr>

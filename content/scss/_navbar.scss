@@ -91,19 +91,19 @@
       @include transition-cool;
       .menu{
         position: absolute;
-        top: 304px;
-        bottom: 0px;
-        left: 900px;
-        right: 10px;
+        top: 339px;
+        bottom: 100px;
+
+        right: 250px;
         z-index: 1000;
-        max-width: 50%;
+        max-width: 3rem;
         max-height: 100%;
         .menu-container{
           .menu-list{
             z-index: 6000;
             top: 20vh;
             height: 50%;
-            width: 100%;
+            width: auto;
             position: absolute;
 
             display: flex;
@@ -116,9 +116,10 @@
             background: #fff;
             @include elevation;
 
+
             &-item{
               pointer-events: all;
-
+              padding: 1rem;
             }
           }
         }

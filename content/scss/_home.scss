@@ -1,10 +1,15 @@
+
+$centerSize: 100vw - 50vw;
+$rightSize: $centerSize / 2;
+$leftSize: (100vw - $centerSize - $rightSize) /2;
+
 .homePage{
 display: flex;
   .left-container{
     float: left;
     display: inline-block;
     height: 100%;
-    width: 25vw;
+    width: $leftSize;
     .filters{
       &-shop-list{
         &-item{
@@ -30,17 +35,21 @@ display: flex;
     }
   }
   .center-container{
+    flex-grow: 1;
     overflow-y:scroll;
     text-align-last: center;
     display: inline-block;
     height: 100%;
-    width: 50vw;
+    width: $centerSize;
     background-color: lightgrey;
+    margin-left: 10px;
+    margin-right:10px;
     .products-list{
       display: grid ;
       grid-template-columns: repeat(3,1fr);
       grid-column-gap: 5px;
-      margin:0 4px 5px 4px;
+      grid-row-gap: 5px;
+      margin:5px 4px 5px 4px;
       &-item{
         .card{
           &-body{
@@ -76,7 +85,8 @@ display: flex;
     float: right;
     display: inline-block;
     height: 100%;
-    width: 25vw;
+    width: $rightSize;
+    @include transition-cool;
     .cart{
       &-title{
         padding-top: 1rem;
@@ -103,6 +113,9 @@ display: flex;
           margin-top: 5px;
         }
       }
+    }
+    &.hidden{
+      width: 0vw;
     }
   }
 }

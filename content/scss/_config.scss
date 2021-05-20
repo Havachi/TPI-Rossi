@@ -15,7 +15,7 @@ $text-onlight:#000;
   transition: all 0.5s ease-in-out;
 }
 @mixin transition-cool {
-  transition: all 0.5s cubic-bezier(.25,.1,.25,1);
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.52, 1.27);
 }
 @function setTextColor($color) {
   @if (lightness($color) > 40%) {

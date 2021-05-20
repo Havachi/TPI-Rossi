@@ -13,7 +13,7 @@
   float: left;
   display: inline-block;
   height: 100%;
-  width: 25vw;
+  width: 12.5vw;
 }
 .homePage .left-container .filters-shop-list-item input {
   display: inline;
@@ -33,18 +33,22 @@
   padding: 5px;
 }
 .homePage .center-container {
+  flex-grow: 1;
   overflow-y: scroll;
   text-align-last: center;
   display: inline-block;
   height: 100%;
   width: 50vw;
   background-color: lightgrey;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .homePage .center-container .products-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 5px;
-  margin: 0 4px 5px 4px;
+  grid-row-gap: 5px;
+  margin: 5px 4px 5px 4px;
 }
 .homePage .center-container .products-list-item .card-body .product-price {
   padding-top: 1rem;
@@ -74,6 +78,7 @@
   display: inline-block;
   height: 100%;
   width: 25vw;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.52, 1.27);
 }
 .homePage .right-container .cart-title {
   padding-top: 1rem;
@@ -99,6 +104,9 @@
 }
 .homePage .right-container .cart-list-body td {
   padding: 10px;
+}
+.homePage .right-container.hidden {
+  width: 0vw;
 }
 
 .register {
@@ -364,23 +372,22 @@
   height: 100%;
   width: 100%;
   pointer-events: none;
-  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.52, 1.27);
 }
 .navbar-list-menu .menu {
   position: absolute;
-  top: 304px;
-  bottom: 0px;
-  left: 900px;
-  right: 10px;
+  top: 339px;
+  bottom: 100px;
+  right: 250px;
   z-index: 1000;
-  max-width: 50%;
+  max-width: 3rem;
   max-height: 100%;
 }
 .navbar-list-menu .menu .menu-container .menu-list {
   z-index: 6000;
   top: 20vh;
   height: 50%;
-  width: 100%;
+  width: auto;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -395,6 +402,7 @@
 }
 .navbar-list-menu .menu .menu-container .menu-list-item {
   pointer-events: all;
+  padding: 1rem;
 }
 
 .btn {

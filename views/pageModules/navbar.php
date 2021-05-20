@@ -38,7 +38,7 @@ require_once "models/gravatar.php";
               <img onclick="toggleMenu()" src="<?=get_gravatar($_SESSION['Account']->emailAddress,50,'identicon','g',false) ; ?>" alt="">
           </div>
         </div>
-        <div id="menu" class="navbar-list-menu" style="">
+        <div id="menu" class="navbar-list-menu" style="display:none;">
           <div class="menu">
             <div class="menu-container">
               <div class="menu-list">

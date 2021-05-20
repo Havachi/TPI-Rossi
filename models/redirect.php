@@ -17,6 +17,10 @@ function postRedirect($postData){
         case 'login':
           require_once "authentication.php";
           Login::loginAccount($_POST['userEmailAddress'],$_POST['userPassword']);
+          unset($_POST);
+          unset($_GET['action']);
+          header('Location: /',true,303);
+          $_GET['action'] = "home";
           break;
         }
       }

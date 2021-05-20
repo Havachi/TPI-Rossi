@@ -11,7 +11,9 @@ class Login
       $params = array('userEmailAddress' => $emailAddress);
       $account = new Account($db->query($query,$params)[0]);
       $account->createSession();
-      unset($account['userPassword']);
+      //I unset the password here, for security purpose.
+      unset($account->userPassword);
+      $_SESSION['Account'] = $account;
     }
   }
   static function isLoginCorrect($emailAddress,$password){

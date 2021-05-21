@@ -1,6 +1,7 @@
 <?php
 namespace BioLocal;
 require_once "DBConnection.class.php";
+require_once "cart.class.php";
 
 class Login
 {
@@ -91,6 +92,7 @@ class Account {
   }
   function createSession(){
     $_SESSION['Token'] = hash('sha256', $this->emailAddress.$this->passwordHash);
+    $_SESSION['Cart'] = new Cart();
     return true;
   }
   function verifySession(){
@@ -103,6 +105,8 @@ class Account {
   static function logout(){
     unset($_SESSION['Account']);
     unset($_SESSION['Token']);
+
+    unset($_SESSION['Cart']);
     header('Location: /');
   }
 

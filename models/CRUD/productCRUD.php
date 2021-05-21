@@ -3,9 +3,12 @@
  * This file is the CRUD implementation for Products in Bio-Local
  *
  */
-
+namespace BioLocal;
 require_once "models/DBConnection.class.php";
-use biolocal\DBConnection as DB;
+require_once "models/product.class.php";
+
+use BioLocal\DBConnection as DB;
+use BioLocal\Product;
 /**
  * This function fetch all product in the database
  * @return array The full list of products in the database
@@ -27,6 +30,14 @@ function getProductsList(array $supplyerList = array()){
 
   return $result;
 }
+function getProductById(int $id){
+  $db = new DB();
+  $query = "SELECT * FROM products WHERE productID = :id";
+  $product = $db->row($query,array('id'=>$id));
+  $product = new Product($product['productID'],$product['supplyerID'],$product['productName'], $product['productStock'], $product['productPrice']);
+  return $product;
+}
+
 /**
  * This function add a product to the database
  * @param Product $productToAdd The product Object to add

@@ -1,22 +1,25 @@
 <?php
-
 namespace BioLocal;
+
+/**
+ * THis class represent a single Product, with all atributs needed for the site
+ */
 class Product
 {
-  /**
-   * [public description]
-   * @var [type]
-   */
+  public int $productID;
+  public int $supplyerID;
+
   public string $name;
   public int $stock;
   public float $price;
-  public int $supplyerID;
 
-  function __construct(string $name, int $initStock, float $initPrice, int $supplyerID)
+  function __construct(int $productID,int $supplyerID ,string $name, int $initStock, float $initPrice )
   {
-    $this->name = $name;
-    $this->stock =$initStock;
-    $this->price = $initPrice;
+    $this->productID = $productID;
     $this->supplyerID = $supplyerID;
+    $this->name = $name;
+    $this->stock = $initStock;
+    $this->price = $initPrice;
   }
+  // TODO: Transfert product CRUD Funtion here
 }

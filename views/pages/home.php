@@ -23,8 +23,10 @@
   </div>
   <div class="center-container">
     <div class="products-list">
-      <?php if (isset($_SESSION) && !empty($_SESSION)): ?>
-        <?php foreach ($pageData['products'] as $product): ?>
+      <?php if (isset($_SESSION['Token']) && !empty($_SESSION['Token'])): ?>
+        <?php foreach ($pageData['products'] as $postalCode => $products): ?>
+          <?php foreach ($products as $product): ?>
+
 
           <!--Single item-->
           <div class="products-list-item">
@@ -47,15 +49,16 @@
                   <?php echo $product['productPrice'] ?> / pièce
                 </div>
                 <div class="product-rate">
-                  <?php echo 'sauce' ?>
+                  <?php echo $postalCode . " - " . $product['supplyerName']?>
                 </div>
                 <div class="product-btns">
-                  <a class="btn btn-light" href="index.php?action=addtocart&product=<?php echo $product['productID'] ?>" >Ajouter au panier</a>
+                  <a class="btn btn-light" href="index.php?action=aTC&product=<?php echo $product['productID'] ?>" >Ajouter au panier</a>
                 </div>
               </div>
             </div>
           </div>
           <?php endforeach; ?>
+        <?php endforeach; ?>
 
         <?php else: ?>
           <?php foreach ($pageData['products'] as $products): ?>
@@ -84,7 +87,7 @@
                         <?php echo $product['supplyerCP'] ?>
                       </div>
                       <div class="product-btns">
-                        <a class="btn btn-light" href="index.php">Ajouter au panier</a>
+                        <a class="btn btn-disabled" nohref>Ajouter au panier</a>
                       </div>
                     </div>
                   </div>
@@ -98,7 +101,7 @@
   </div>
   <div class="right-container">
     <div class="cart">
-      <h2 class="cart-title">Panier <?php if (!isset($_SESSION['cart']) && empty($_SESSION['cart'])): ?>Vide<?php endif; ?>
+      <h2 class="cart-title">Panier <?php if (!isset($_SESSION['Cart']) || empty($_SESSION['Cart']->cartContent)): ?>Vide<?php endif; ?>
       <a href="#" onclick="toggleCart();return false;"><span class="material-icons">arrow_forward</span></h2></a>
       <table class="cart-list" cellpadding="10">
         <thead class="cart-list-header">
@@ -109,13 +112,34 @@
           </tr>
         </thead>
         <tbody class="cart-list-body">
-          <?php if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) ): ?>
-            <?php foreach ($_SESSION['cart'] as $key => $value): ?>
-
+          <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent) ): ?>
+            <?php foreach ($_SESSION['Cart']->cartContent as $key => $itemInCart): ?>
+              <tr>
+                <td><?php echo $itemInCart['product']->name ?></td>
+                <td><?php echo $itemInCart['quantity'] ?></td>
+                <td><?php echo $itemInCart['product']->price ?></td>
+              </tr>
             <?php endforeach; ?>
           <?php endif; ?>
         </tbody>
+        <?php if (isset($_SESSION['Token'])): ?>
+          <tfoot class="cart-list-foot">
+            <tr class="cart-list-foot-row">
+              <td class="cart-list-foot-cell"><b>Total</b></td>
+              <td class="cart-list-foot-cell"></td>
+              <td class="cart-list-foot-cell">
+              <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent)): ?>
+                <?php echo $_SESSION['Cart']->cartTotal . "CHF"?>
+              <?php else: ?>
+                <?='0.- CHF'?>
+              <?php endif; ?>
+              </td>
+              <td></td>
+            </tr>
+          </tfoot>
+        <?php endif; ?>
       </table>
+
     </div>
   </div>
 </div>

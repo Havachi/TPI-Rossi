@@ -83,5 +83,28 @@ class Controller
     }
     return $pageData;
   }
+  static function cartControl($getCode = null, $productId = 0){
+    require_once "models/CRUD/productCRUD.php";
+    if ($getCode != null) {
+      if ($productId != 0) {
+        switch ($getCode) {
+          //Add To Cart
+          case 'aTC':
+          $_SESSION['Cart']->addToCart(getProductById((int)$productId));
+            break;
+          //Remove From Cart
+          case 'rFC':
+            $_SESSION['Cart']->removeFromCart(getProductById((int)$productId,$quantity));
+            break;
+          //Delete From Cart
+          case 'dC':
+            $_SESSION['Cart']->deleteCart();
+            break;
+        }
+      }else {
+        $_SESSION['Cart']->deleteCart();
+      }
+    }
+  }
 
 }

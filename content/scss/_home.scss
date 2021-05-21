@@ -4,6 +4,7 @@ $rightSize: $centerSize / 2;
 $leftSize: (100vw - $centerSize - $rightSize) /2;
 
 .homePage{
+
 display: flex;
   .left-container{
     float: left;

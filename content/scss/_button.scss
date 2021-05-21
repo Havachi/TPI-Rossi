@@ -10,6 +10,10 @@
     background-color: $primary-color;
     border-color: $primary-color;
     color: setTextColor($primary-color);
+    &:hover{
+      @include elevationHover;
+      background-color:setHoverColor($primary-color);
+    }
   }
   &#{&}-secondary{
     background-color: $secondary-color;
@@ -28,7 +32,13 @@
     border-color: #5efc82;
     color: setTextColor(#5efc82);
   }
-  &:hover{
-    @include elevationHover;
+  &#{&}-disabled{
+    background-color: lightgrey;
+    border: none;
+    color: setTextColor(lightgrey);
+    opacity: 38%;
+    &:hover{
+      box-shadow: none;
+    }
   }
 }

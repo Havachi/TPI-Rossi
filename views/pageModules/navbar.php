@@ -43,7 +43,7 @@ require_once "models/gravatar.php";
             <div class="menu-container">
               <div class="menu-list">
                 <div class="menu-list-item">
-                  <a href="#">Espace Client</a>
+                  <a href="index.php?action=userspace">Espace Client</a>
                 </div>
                 <div class="menu-list-item">
                   <a href="index.php?action=logout">Se déconnecter</a>

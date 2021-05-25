@@ -1,0 +1,62 @@
+.userspace{
+
+  &-container{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 1rem;
+    height: 100%;
+    width: 100%;
+
+    .userspace-personnal{
+      border: 1px solid black;
+
+      display: flex;
+      flex-direction: row;
+      align-content: stretch;
+      justify-content: center;
+
+      padding: 1rem;
+      margin-top:4rem;
+      &-avatar{
+        display: inline;
+        margin-right: 1.6rem;
+        flex-grow: 0.01;
+        img{
+          border-radius: 100%;
+        }
+      }
+      &-info{
+        display: inline;
+        flex-grow: 0.2;
+        &-name{
+          font-weight: bold;
+        }
+        &-address{
+
+        }
+      }
+
+      &-changebtn{
+        flex-basis: 100px;
+        align-self: center;
+      }
+    }
+    .userspace-address{
+      border: 1px solid black;
+
+      display: flex;
+      flex-direction: row;
+      align-content: stretch;
+      justify-content: center;
+      padding: 1rem;
+      margin-top:4rem;
+      &-changebtn{
+        flex-basis: 100px;
+        align-self: center;
+      }
+    }
+    .userspace-password{
+
+    }
+  }
+}

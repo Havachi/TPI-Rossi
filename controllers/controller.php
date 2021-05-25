@@ -28,13 +28,18 @@ class Controller
     ob_start();
     self::loadPageModels();
     $page = new Page($pageName,self::getPageContent("views/pages/" . $pageName . ".php"));
-    $page->addNavbar("views/pageModules/navbar.php");
+    if ($pageName == "userspaceInfo" || $pageName == "userspaceOrder") {
+      $page->addNavbar("views/pageModules/navbarUserspace.php");
+    }else {
+      $page->addNavbar("views/pageModules/navbar.php");
+    }
+
     ob_get_clean();
-    require "views/layout.php";
+    require_once "views/layout.php";
   }
   static function loadPageModels(){
-    require "models/pageModels/page.class.php";
-    require "models/pageModels/navbar.class.php";
+    require_once "models/pageModels/page.class.php";
+    require_once "models/pageModels/navbar.class.php";
   }
   static function pageExist($page){
     if (file_exists("views/pages/".$page.".php")) {

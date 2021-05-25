@@ -33,6 +33,17 @@ if (isset($_GET) && !empty($_GET)) {
       }
     }
 
+    //User space special path
+    if ($_GET['action'] == 'userspace' && isset($_GET['display'])) {
+      if ($_GET['display'] == 'info') {
+        $control::displayPage('userspaceInfo');
+      }elseif($_GET['display'] == 'order'){
+        $control::displayPage('userspaceOrder');
+      }
+    }else {
+      $control::displayPage('userspaceInfo');
+    }
+
     //Checkout special path
     if ($_GET['action'] == 'checkout') {
       if (isset($_GET['step'])) {

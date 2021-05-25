@@ -2,11 +2,13 @@
 //Globals and configs
 @use "sass:color";
 @import "config";
+@import "responsive";
 //Pages specifics
 @import "home";
 @import "register";
 @import "login";
 @import "error";
+@import "checkout";
 //Modules Specifics
 @import "navbar";
 @import "button";

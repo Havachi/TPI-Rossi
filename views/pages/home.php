@@ -1,5 +1,5 @@
 <div class="homePage">
-  <div class="left-container">
+  <div class="left-container" style="display:none">
     <div class="filters">
       <h2>Filtres</h2>
       <ul class="filters-shop-list">
@@ -46,7 +46,7 @@
                   <?php echo $product['productName'] ?>
                 </div>
                 <div class="product-price">
-                  <?php echo $product['productPrice'] ?> / pièce
+                  <?php echo $product['productPrice'] ?> CHF / pièce
                 </div>
                 <div class="product-rate">
                   <?php echo $postalCode . " - " . $product['supplyerName']?>
@@ -139,7 +139,9 @@
           </tfoot>
         <?php endif; ?>
       </table>
-
+      <div class="cart-checkout">
+        <a class="btn btn-primary" href="index.php?action=checkout">Passer à la caisse</a>
+      </div>
     </div>
   </div>
 </div>

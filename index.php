@@ -18,20 +18,37 @@ $request_url = $_SERVER["REQUEST_URI"];
 $control = new Controller($request_url);
 if (isset($_GET) && !empty($_GET)) {
   if (isset($_GET['action']) && !empty($_GET['action'])) {
+
+    //Logout special path
     if ($_GET['action'] === 'logout') {
       Account::logout();
-    }elseif ($_GET['action'] === 'aTC' || $_GET['action'] === 'rFC' || $_GET['action'] === 'dC') {
+    }
+
+    //Cart action special path
+    if ($_GET['action'] === 'aTC' || $_GET['action'] === 'rFC' || $_GET['action'] === 'dC') {
       if (isset($_GET['product']) && !empty($_GET['product'])) {
         $control::cartControl($_GET['action'], $_GET['product']);
       }else {
         $control::cartControl($_GET['action']);
       }
     }
+
+    //Checkout special path
+    if ($_GET['action'] == 'checkout') {
+      if (isset($_GET['step'])) {
+        $control::checkoutControl($_GET['step']);
+      }else{
+        $control::checkoutControl();
+      }
+    }
+
+    //Default path
     if ($control::pageExist($_GET['action'])) {
       $control::displayPage($_GET['action']);
     }else {
       $control::displayPage("home");
     }
+
   }
 }else {
   $control::displayPage("home");

@@ -1,0 +1,71 @@
+.checkout{
+  &-title{
+    margin-top: 1rem;
+    text-align: center;
+  }
+  &-container{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-left: 30% ;
+    margin-right: 30% ;
+    .cart-item{
+      border-top: 3px solid $primary-color;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-evenly;
+      &-name{
+        display: inline;
+        float: left;
+      }
+      &-qty{
+        display: inline;
+      }
+      &-price{
+        display: inline;
+      }
+    }
+    .checkout-address{
+
+      .address{
+        text-align:  center;
+        margin: 1rem;
+      }
+    }
+    .checkout-pay{
+      .pay-disabled{
+        text-align:  center;
+        margin: 1rem;
+      }
+    }
+    .checkout-final{
+      &-container{
+        display: flex;
+        flex-direction: column;
+        &-cart{
+          .container-title{
+
+          }
+        }
+        &-address{
+
+        }
+        &-pay{
+
+        }
+      }
+    }
+
+  }
+  &-btns{
+    margin-top: 1rem;
+    display: inline;
+
+    text-align: center;
+    padding:1rem;
+    a{
+      padding: 0.7rem;
+    }
+  }
+}

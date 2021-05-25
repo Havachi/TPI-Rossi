@@ -48,6 +48,7 @@ class Register
 }
 
 class Account {
+  public int $ID;
   public string $firstName;
   public string  $lastName;
   public string  $addressRoad;
@@ -101,6 +102,11 @@ class Account {
     }else {
       return false;
     }
+  }
+  function getUserID(){
+    $db = new DBConnection();
+    $query = "SELECT userID FROM users WHERE userEmailAddress = :email";
+    return $db->single($query,array('email' =>$_SESSION['Account']->emailAddress));
   }
   static function logout(){
     unset($_SESSION['Account']);

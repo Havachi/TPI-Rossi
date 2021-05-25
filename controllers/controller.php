@@ -106,5 +106,44 @@ class Controller
       }
     }
   }
+  static function checkoutControl($step = 1){
+    require_once "models/checkout.php";
+    $validationTokens = array('cart'=>0,'address'=>0,'payment'=>0,'final'=>0);
+
+    if (isset($_SESSION) && !empty($_SESSION)) {
+      if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart'])) {
+        $cart = $_SESSION['Cart']->cartContent;
+        switch ($step) {
+          case 1:
+          self::displayPage("checkout1");
+            break;
+          case 2:
+          $validationTokens['cart'] = 1;
+          self::displayPage("checkout2");
+            break;
+          case 3:
+          $validationTokens['address'] = 1;
+          self::displayPage("checkout3");
+            break;
+          case 4:
+          $validationTokens['payment'] = 1;
+          self::displayPage("checkout4");
+            break;
+          case 'end':
+            createOrder();
+            $_SESSION['Cart'] = new Cart;
+            header('Location: /');
+            break;
+        }
+
+        if (array_sum($validationTokens) == 4)
+        {
+          echo "Tout bon!";
+        }
+
+
+      }
+    }
+  }
 
 }

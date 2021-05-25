@@ -27,23 +27,27 @@ $text-onlight:#000;
 @function setHoverColor($color){
   @return desaturate($color,15%);
 }
+
+
+//Size Breakpoints
+
 @mixin media-sm {
-  @media screen and (max-width:768px) {
+  @media screen and (max-width:640px) {
     @content;
   }
 }
 @mixin media-md {
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
+  @media screen and (min-width: 640px) and (max-width: 1024px) {
     @content;
   }
 }
 @mixin media-lg {
-  @media screen and (min-width: 1024px) and (max-width:1600px) {
+  @media screen and (min-width: 1024px) and (max-width:1920px) {
     @content;
   }
 }
 @mixin media-xl {
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1920px) {
     @content;
   }
 }

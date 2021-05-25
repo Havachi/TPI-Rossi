@@ -1,0 +1,11 @@
+@include media-lg{
+  .homePage{
+    .left-container{
+      display: none;
+
+    }
+    .right-container{
+      display: none;
+    }
+  }
+}

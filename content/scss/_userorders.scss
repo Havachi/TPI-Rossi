@@ -1,0 +1,33 @@
+.userorder-title{
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+.userorder{
+  padding-top: 5vh;
+  &-container{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .userorder-orderlist{
+
+      border-collapse: collapse;
+      width: 50vw;
+      height: 100%;
+
+      &-header{
+        background-color: lightgrey;
+        border-bottom: 1px solid black;
+        padding: 1rem;
+      }
+      &-body{
+        margin-top: 5px;
+        td{
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

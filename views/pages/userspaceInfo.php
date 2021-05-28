@@ -1,4 +1,7 @@
 <?php require_once "models/gravatar.php"; ?>
+<div class="usersapce-title">
+  <h2>Informations Personnelles</h2>
+</div>
 <div class="userspace">
   <div class="userspace-container">
     <div class="userspace-personnal">
@@ -20,6 +23,9 @@
       </div>
     </div>
     <div class="userspace-address">
+      <div class="userspace-address-title">
+        <h4>Adresse postale</h4>
+      </div>
       <div class="userspace-address-road">
         <div class="userspace-address-road-name">
           <?php echo $_SESSION['Account']->addressRoad ?>
@@ -33,17 +39,13 @@
 
         </div>
         <div class="userspace-address-city-code">
-          <?php echo $_SESSION['Account']->addressRoadNumber ?>
+          <?php echo $_SESSION['Account']->addressPostalCode ?>
         </div>
       </div>
       <div class="userspace-address-changebtn">
         <a class="btn btn-primary" href="#">Changer</a>
       </div>
     </div>
-    <div class="userspace-password">
-      <div class="userspace-password-changebtn">
-        <a class="btn btn-primary" href="#">Changer</a>
-      </div>
-    </div>
+
   </div>
 </div>

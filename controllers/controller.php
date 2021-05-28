@@ -59,6 +59,11 @@ class Controller
     $supplyerList = getSupplyersList($pcList);
     return $supplyerList;
   }
+  static function loadUserOrder($userID){
+    require_once "models/CRUD/userCRUD.php";
+    $userOrder = getUserOrdersList($userID);
+    return $userOrder;
+  }
   static function getPageContent($path){
     $pageData = self::getPageData(basename($path,".php"));
     ob_start();
@@ -83,8 +88,12 @@ class Controller
           $pageData['supplyers']=self::loadSupplyers();
           $pageData['products']=self::loadProducts($pageData['supplyers']);
         }
-
         break;
+      case 'userspaceOrder':
+      if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
+        $pageData['userOrders']=self::loadUserOrder($_SESSION['Account']->getUserID());
+      }
+      break;
     }
     return $pageData;
   }

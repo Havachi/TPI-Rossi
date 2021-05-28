@@ -24,7 +24,7 @@ class Controller
    *
    * @param  string $pageName the name of the page to display(filename w/out extention)
    */
-  static function displayPage($pageName){
+  static function displayPage(string $pageName){
     ob_start();
     self::loadPageModels();
     $page = new Page($pageName,self::getPageContent("views/pages/" . $pageName . ".php"));
@@ -37,11 +37,19 @@ class Controller
     ob_get_clean();
     require_once "views/layout.php";
   }
+  /**
+   * This function load all page module, like navbar and footer
+   */
   static function loadPageModels(){
     require_once "models/pageModels/page.class.php";
     require_once "models/pageModels/navbar.class.php";
   }
-  static function pageExist($page){
+  /**
+   * Check if the page exist
+   * @param  string $page
+   * @return true if the page exist ; false if the page doesn't exist
+   */
+  static function pageExist(string $page){
     if (file_exists("views/pages/".$page.".php")) {
       return true;
     }else {

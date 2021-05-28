@@ -11,7 +11,7 @@ class Order
   function __construct($fromAccount, Cart $currentCart)
   {
     $this->fromAccount = $fromAccount;
-    $this->date = date('now');
+    $this->date = date('Y-m-d H:i:s',time());
     $this->currentCart = $currentCart;
     $this->orderPrice = $currentCart->cartTotal;
   }

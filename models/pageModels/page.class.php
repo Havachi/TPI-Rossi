@@ -21,7 +21,10 @@ class Page
    * @var Footer
    */
   public Navbar $navbar;
-
+  /**
+   * Any optional data can be passed here, not yet in use
+   * @var array
+   */
   public array $data;
 
   function __construct($title, $content, $data = array())

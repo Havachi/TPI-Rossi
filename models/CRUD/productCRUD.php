@@ -30,6 +30,11 @@ function getProductsList(array $supplyerList = array()){
 
   return $result;
 }
+/**
+ * This function get from the database a product by it's unique ID
+ * @param  int    $id The product ID
+ * @return Product The searched product
+ */
 function getProductById(int $id){
   $db = new DB();
   $query = "SELECT * FROM products WHERE productID = :id";

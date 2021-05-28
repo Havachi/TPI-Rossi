@@ -2,7 +2,7 @@
 
 /**
  * This function will get neihbourg postal code from the user's postal code
- * It use a public and free API from "api.geonames.org"
+ * It use a public and free API from "api.geonames.org", I use the findNearbyPostalCodes webservice
  * @param  string $currentPC The user's postal code
  * @return return an array of unique postal code
  */

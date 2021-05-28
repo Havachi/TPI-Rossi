@@ -27,12 +27,22 @@ class Page
    */
   public array $data;
 
-  function __construct($title, $content, $data = array())
+  /**
+   * This is the construct function for the page object
+   * @param string $title The title of the page
+   * @param string $content The content to display
+   * @param array  $data Any optional data can be passed here
+   */
+  function __construct(string $title, string $content, array $data = array())
   {
     $this->title = $title;
     $this->content = $content;
     $this->data = ($data===null) ? "" : $data;
   }
+  /**
+   * This function create a navbar from a php file, it also execute any php code in the file
+   * @param string $navbarPath The path to the navbar content file
+   */
   function addNavbar(string $navbarPath){
     ob_start();
     require $navbarPath;

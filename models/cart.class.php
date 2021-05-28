@@ -19,8 +19,21 @@ use BioLocal\Product;
  */
 class Cart
 {
+  /**
+   * This is the content of the cart
+   * @var array
+   */
   public Array $cartContent;
+  /**
+   * This is the total (money) that the user must pay
+   * @var float
+   */
   public float $cartTotal = 0;
+  /**
+   * This function is for adding item to the cart
+   * @param Product $productToAdd The product to add
+   * @param integer $quantity The quantity of product to add (1 by default)
+   */
   public function addToCart(Product $productToAdd, int $quantity = 1){
     $idInCart = false;
     if (!empty($this->cartContent)) {
@@ -34,6 +47,11 @@ class Cart
     }
     $this->calculateTotal();
   }
+  /**
+   * This function is for removing item to the cart
+   * @param Product $productToAdd The product to remove
+   * @param integer $quantity The quantity of product to remove (1 by default)
+   */
   public function removeFromCart(Product $productToAdd, int $quantity = 1){
     $idInCart = self::contains($productToAdd);
     if ($idInCart != false) {
@@ -41,6 +59,9 @@ class Cart
     }
     $this->calculateTotal();
   }
+  /**
+   * This function reset the entire cart
+   */
   public function deleteCart(){
     $this->cartContent = array();
   }
@@ -60,6 +81,9 @@ class Cart
     }
     return false;
   }
+  /**
+   * This function calculate the total that the user must pay
+   */
   public function calculateTotal(){
     $total = 0;
     foreach ($this->cartContent as $item) {

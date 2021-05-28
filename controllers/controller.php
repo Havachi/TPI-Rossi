@@ -14,11 +14,11 @@ class Controller
    * @var Page $page
    */
   public Page $page;
+  /**
+   * All data passed with the page, it usualy contains database entry, like the name of the user of products list.
+   * @var array
+   */
   public array $pageData = array();
-  function __construct()
-  {
-
-  }
   /**
    * This core function is used to display page easyily
    *
@@ -56,36 +56,60 @@ class Controller
       return false;
     }
   }
+  /**
+   * This function products from the data base, the results can be precised by a supplyers list
+   * @param  array  $supplyerList Optional supplyers list, the site will only return products from those supplyers
+   * @return array the list of products found.
+   */
   static function loadProducts(array $supplyerList = array()){
     // TODO: Should load only the products from supplyers within the range
     require_once "models/CRUD/productCRUD.php";
     $productList = getProductsList($supplyerList);
     return $productList;
   }
+  /**
+   * This function load all supplyers in database, it can be precised with a postal code array.
+   * @param  array  $pcList Optional, the postal code array used to select only supplyers within a range of postal codes
+   * @return array the supplyers list
+   */
   static function loadSupplyers(array $pcList = array()){
     require_once "models/CRUD/supplyerCRUD.php";
     $supplyerList = getSupplyersList($pcList);
     return $supplyerList;
   }
-  static function loadUserOrder($userID){
+  /**
+   * This function return the list of orders passed by a user
+   * @param  int $userID
+   * @return array the list of orders passed by a user
+   */
+  static function loadUserOrder(int $userID){
     require_once "models/CRUD/userCRUD.php";
     $userOrder = getUserOrdersList($userID);
     return $userOrder;
   }
-  static function getPageContent($path){
+  /**
+   * This function load and execute a single page, then return the full content of the page
+   * @param  string path, the path where the file to load is
+   * @return string the content of the page, loaded and ready to be displayed
+   */
+  static function getPageContent(string $path){
     $pageData = self::getPageData(basename($path,".php"));
     ob_start();
     require $path;
     $content = ob_get_clean();
     return $content;
   }
+
   /**
    * This function get the page Data (e.g Products list, supplyer list etc..) that are evaluated before the page is send to the browser
-   * @var [type]
+   * It is only used by two page that need special treatment
+   * @var string the name of the page
+   * @return array All needed data
    */
-  static function getPageData($pageName){
+  static function getPageData(string $pageName){
     $pageData = array();
     switch ($pageName) {
+      //home page case
       case 'home':
         if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
           require_once "models/distanceCalculation.php";
@@ -97,6 +121,7 @@ class Controller
           $pageData['products']=self::loadProducts($pageData['supplyers']);
         }
         break;
+      //userspace/Order case
       case 'userspaceOrder':
       if (isset($_SESSION['Account']) && !empty($_SESSION['Account'])) {
         $pageData['userOrders']=self::loadUserOrder($_SESSION['Account']->getUserID());
@@ -105,7 +130,12 @@ class Controller
     }
     return $pageData;
   }
-  static function cartControl($getCode = null, $productId = 0){
+  /**
+   * This is a controller function for the cart
+   * @param  string  $getCode   This code define what we want to do with the cart
+   * @param  int $productId The optional productID, to know which item in cart we want to modify
+   */
+  static function cartControl($getCode = null, int $productId = 0, int $quantity = 0){
     require_once "models/CRUD/productCRUD.php";
     if ($getCode != null) {
       if ($productId != 0) {
@@ -128,10 +158,13 @@ class Controller
       }
     }
   }
+  /**
+   * This function is a controller for the checkout process, it display pages in order, and validate the process
+   * @param  integer $step at which step the user is, 1,2,3, 4 and end
+   */
   static function checkoutControl($step = 1){
     require_once "models/checkout.php";
     $validationTokens = array('cart'=>0,'address'=>0,'payment'=>0,'final'=>0);
-
     if (isset($_SESSION) && !empty($_SESSION)) {
       if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart'])) {
         $cart = $_SESSION['Cart']->cartContent;
@@ -162,10 +195,7 @@ class Controller
         {
           echo "Tout bon!";
         }
-
-
       }
     }
   }
-
 }

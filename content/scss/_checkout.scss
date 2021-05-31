@@ -47,12 +47,19 @@
           .container-title{
 
           }
+          padding: 1rem;
+          @include elevation;
+          margin-bottom: 1rem;
         }
         &-address{
-
+          padding: 1rem;
+          @include elevation;
+          margin-bottom: 1rem;
         }
         &-pay{
-
+          padding: 1rem;
+          @include elevation;
+          margin-bottom: 1rem;
         }
       }
     }
@@ -60,7 +67,7 @@
   }
   &-btns{
     margin-top: 1rem;
-    display: inline;
+    display: block;
 
     text-align: center;
     padding:1rem;

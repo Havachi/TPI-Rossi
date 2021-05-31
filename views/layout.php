@@ -22,6 +22,7 @@
   <?php endif; ?>
   <?php if ($page->title == 'home'): ?>
     <script type="text/javascript" src="content/scripts/cart.js"></script>
+    <script type="text/javascript" src="content/scripts/home.js"></script>
     <script type="text/javascript" src="content/scripts/overlaymenu.js"></script>
   <?php endif; ?>
 </html>

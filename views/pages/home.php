@@ -99,49 +99,56 @@
 
     </div>
   </div>
+
   <div class="right-container">
-    <div class="cart">
-      <h2 class="cart-title">Panier <?php if (!isset($_SESSION['Cart']) || empty($_SESSION['Cart']->cartContent)): ?>Vide<?php endif; ?>
-      <a href="#" onclick="toggleCart();return false;"><span class="material-icons">arrow_forward</span></h2></a>
-      <table class="cart-list" cellpadding="10">
-        <thead class="cart-list-header">
-          <tr>
-            <th>Article</th>
-            <th>Quantitée</th>
-            <th>Prix</th>
-          </tr>
-        </thead>
-        <tbody class="cart-list-body">
-          <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent) ): ?>
-            <?php foreach ($_SESSION['Cart']->cartContent as $key => $itemInCart): ?>
-              <tr>
-                <td><?php echo $itemInCart['product']->name ?></td>
-                <td><?php echo $itemInCart['quantity'] ?></td>
-                <td><?php echo $itemInCart['product']->price ?></td>
-              </tr>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </tbody>
-        <?php if (isset($_SESSION['Token'])): ?>
-          <tfoot class="cart-list-foot">
-            <tr class="cart-list-foot-row">
-              <td class="cart-list-foot-cell"><b>Total</b></td>
-              <td class="cart-list-foot-cell"></td>
-              <td class="cart-list-foot-cell">
-              <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent)): ?>
-                <?php echo $_SESSION['Cart']->cartTotal . "CHF"?>
-              <?php else: ?>
-                <?='0.- CHF'?>
-              <?php endif; ?>
-              </td>
-              <td></td>
+    <div id="cart-toggler" class="cart-btn">
+        <a class="" href="#" onclick="toggleCart();return false;"><span class="material-icons">arrow_forward</span></h2></a>
+    </div>
+    <button type="button" onclick="hideCart()" class="right-container-quit"><span class="material-icons md-36">clear</span></button>
+    <div class="cart-container">
+      <div class="cart">
+        <h2 class="cart-title">Panier <?php if (!isset($_SESSION['Cart']) || empty($_SESSION['Cart']->cartContent)): ?>Vide<?php endif; ?></h2>
+        <table class="cart-list" cellpadding="10">
+          <thead class="cart-list-header">
+            <tr>
+              <th>Article</th>
+              <th>Quantitée</th>
+              <th>Prix</th>
             </tr>
-          </tfoot>
-        <?php endif; ?>
-      </table>
-      <div class="cart-checkout">
-        <a class="btn btn-primary" href="index.php?action=checkout">Passer à la caisse</a>
+          </thead>
+          <tbody class="cart-list-body">
+            <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent) ): ?>
+              <?php foreach ($_SESSION['Cart']->cartContent as $key => $itemInCart): ?>
+                <tr>
+                  <td><?php echo $itemInCart['product']->name ?></td>
+                  <td><?php echo $itemInCart['quantity'] ?></td>
+                  <td><?php echo $itemInCart['product']->price ?></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </tbody>
+          <?php if (isset($_SESSION['Token'])): ?>
+            <tfoot class="cart-list-foot">
+              <tr class="cart-list-foot-row">
+                <td class="cart-list-foot-cell"><b>Total</b></td>
+                <td class="cart-list-foot-cell"></td>
+                <td class="cart-list-foot-cell">
+                <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent)): ?>
+                  <?php echo $_SESSION['Cart']->cartTotal . "CHF"?>
+                <?php else: ?>
+                  <?='0.- CHF'?>
+                <?php endif; ?>
+                </td>
+                <td></td>
+              </tr>
+            </tfoot>
+          <?php endif; ?>
+        </table>
+        <div class="cart-checkout">
+          <a class="btn btn-primary" href="index.php?action=checkout">Passer à la caisse</a>
+        </div>
       </div>
     </div>
+
   </div>
 </div>

@@ -27,7 +27,6 @@
     color: setTextColor(#5efc82);
   }
   &#{&}-next{
-    float:right;
     background-color: $primary-color;
     border-color: $primary-color;
     color: setTextColor($primary-color);
@@ -38,7 +37,6 @@
 
   }
   &#{&}-back{
-    float:right;
     background-color: rgba(0,0,0,0);
     border-color: $primary-color;
     border-width: 2px;

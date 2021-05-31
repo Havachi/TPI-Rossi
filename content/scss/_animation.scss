@@ -1,9 +1,18 @@
 @keyframes inputFocusOutlineAnimation {
   0% ,100% {@include elevationC($primary-color);}
   50% {@include elevationC(#00FF00);}
-
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
+@mixin btnGlowing {
+  animation-name: glowing;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
 
 @mixin inputFocusAnimation {
   animation-name: inputFocusOutlineAnimation;

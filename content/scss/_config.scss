@@ -49,12 +49,7 @@ $text-onlight:#000;
   }
 }
 @mixin media-lg {
-  @media screen and (min-width: 1024px) and (max-width:1919px) {
-    @content;
-  }
-}
-@mixin media-xl {
-  @media screen and (min-width: 1920px) {
+  @media screen and (min-width: 1024px) {
     @content;
   }
 }

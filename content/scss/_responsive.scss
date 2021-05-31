@@ -4,34 +4,140 @@
       display: none;
     }
     .right-container{
-      display: none;
+
     }
+  }
+  .sm-navbar{
+    display: none;
   }
 
 
 }
 @include media-md{
-  .register{
+  .homePage{
+    .left-container{
+      display: none !important;
+    }
+    .center-container{
+      width: 100%;
+      .products-list{
+        grid-template-columns: repeat(2,1fr) !important;
+      }
+    }
+    .right-container{
+      width: 0%;
+      height: 45vh;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      background-color: color.scale($primary-color, $lightness: +95%);
+      opacity: 0.90;
+      overflow-x: hidden;
+      @include elevation;
+      @include transition-cool;
+      padding-top: 10px;
+      text-align:left;
+      .cart-btn{
+        display: none;
+      }
+      &-quit{
+        border: none;
+        outline: none;
+        background-color: inherit;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block !important;
+        transition: 0.3s;
+        align-content: center;
+      }
 
+
+    }
+    .right-container.width-toggle{
+      width: 100%;
+    }
+  }
+  .register{
     &-container{
-      display: block;
       .register-form{
         width: 50% !important;
       }
     }
   }
   .login{
-
     &-container{
-      display: block;
       .login-form{
         width: 50% !important;
       }
+    }
+  }
+  .checkout{
+    &-container{
+
+    }
+    &-btns{
+      display: flex;
+      flex-direction: column;
     }
   }
 }
 
 @include media-sm{
+
+  .homePage{
+    display: block !important;
+    .left-container{
+      display: none !important;
+    }
+
+    //Center container Part
+    .center-container{
+      width: 100%;
+      .products-list{
+        grid-template-columns: repeat(1,1fr) !important;
+      }
+    }
+
+    .right-container{
+      .right-container-quit{display: block;}
+      width: 0%;
+      height: 45vh;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      background-color: color.scale($primary-color, $lightness: +90%);
+      opacity: 0.90;
+      overflow-x: hidden;
+      @include transition-cool;
+      @include elevation;
+      padding-top: 10px;
+      text-align:left;
+      .cart-btn{
+        display: none;
+      }
+      &-quit{
+        border: none;
+        outline: none;
+        background-color: inherit;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+        align-content: center;
+      }
+
+
+    }
+    .right-container.width-toggle{
+      width: 100%;
+    }
+  }
   .register{
     &-container{
       .register-form{
@@ -46,10 +152,19 @@
     &-container{
       .login-form{
         width: 100% !important;
-        margin-top: 2rem !important;
+        margin-top: 0rem !important;
         margin-bottom: 2rem !important;
         height: auto !important;
       }
+    }
+  }
+  .checkout{
+    &-container{
+
+    }
+    &-btns{
+      display: flex;
+      flex-direction: column;
     }
   }
 }

@@ -128,3 +128,59 @@
     }
     }
 }
+.sm-navbar{
+  &-container{
+    display: block;
+    .sidebar-btnCollapse{
+      border: none;
+      outline: none;
+      .menu-icon{
+        font-size: 2rem;
+        margin-top: 10px;
+        margin-left: 10px;
+        background-color: $primary-color;
+      }
+    }
+    .sidebar {
+      width: 0;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      background-color: $primary-color;
+      opacity: 0.98;
+      overflow-x: hidden;
+      @include transition-cool;
+      padding-top: 10px;
+      text-align:left;
+      @include elevation;
+      a{
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fff;
+        display: block;
+        @include transition-cool;
+        &:hover{
+          background-color: $primary-color;
+        }
+      }
+      .sidebar-quit{
+        border: none;
+        outline: none;
+        background-color: inherit;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+        align-content: center;
+      }
+
+    }
+  }
+  .sidebar.width-toggle{
+    width: 100%;
+  }
+}

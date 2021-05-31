@@ -1,7 +1,7 @@
 
-$centerSize: 100vw - 50vw;
-$rightSize: $centerSize / 2;
-$leftSize: (100vw - $centerSize - $rightSize) /2;
+$centerSize: 100%;
+$rightSize: 50%;
+$leftSize: 0vw;
 
 .homePage{
 
@@ -82,13 +82,38 @@ display: flex;
     }
   }
   .right-container{
+    .right-container-quit{display:none;}
+    flex-basis: 50%;
     text-align-last: left;
     float: right;
-    display: inline-block;
-    height: 100%;
-    width: $rightSize;
+    display: flex;
     @include transition-cool;
+    &.widthChange{
+      flex-basis: 0;
+    }
+    .cart-btn{
+      align-self: center;
+      padding-top: 50%;
+      padding-bottom: 50%;
+      margin-right: 1rem;
+      @include elevation;
+      @include transition-cool;
+      &:hover{
+        @include elevationHover;
+      }
+      &.cartwidthChange{
+        transform: rotate(180deg);
+      }
+    }
+    .cart-container{
+      display: block;
+      width: 100%;
+      flex-grow: 1;
+      font-size: 1rem;
     .cart{
+      &.widthChange{
+        width: 0;
+      }
       &-title{
         padding-top: 1rem;
         padding-left: 1rem;
@@ -100,29 +125,48 @@ display: flex;
       &-list{
         margin-top: 10px;
         margin-left: 15px;
-        width: 100%;
-        height: 100%;
+        width: 90%;
         border-collapse: collapse;
+        &.widthChange{
+          width: 0vw;
+        }
         &-header{
           border-bottom: 1px solid black;
-          padding-bottom: 5px
+          padding-bottom: 5px;
+          font-size: 1rem;
         }
         &-body{
+          font-size: 1rem;
           td{
             padding: 10px;
           }
           margin-top: 5px;
         }
+        &-foot{
+
+          font-size: 1rem;
+          &-cell{
+            padding-top: 1rem;
+          }
+        }
       }
       &-checkout{
+        font-size: 1rem;
         width: 50%;
         margin-top: 1rem;
         margin-left: auto;
         margin-right: auto;
+        }
+        &.widthChange{
+          display: none;
+          width: 0%;
+        }
       }
     }
-    &.hidden{
-      width: 0vw;
-    }
   }
+
+}
+.highlightLink{
+  border-bottom: 1px solid rgba(240, 240, 240, 0.2);
+  margin-bottom: 1rem;
 }

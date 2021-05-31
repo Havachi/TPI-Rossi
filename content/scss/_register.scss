@@ -7,7 +7,6 @@
     align-items: center;
 
     .register-form{
-      height: 25rem;
       width: 20%;
       padding: 1rem;
       margin-top: 15vh;
@@ -42,6 +41,7 @@
             @include transition-cool;
             &:focus{
               @include inputOutlineFocused;
+              @include inputFocusAnimation;
             }
           }
           .consent{
@@ -80,13 +80,19 @@
         }
       }
       &-btns{
-        display: block;
+        display: flex;
         width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
       }
       &-links{
+
         padding-top: 1rem;
         display: block;
         .linkToLogin{
+          text-align:  center;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(240,240,240,1);
           display: block;
           font-size: 0.7rem;
         }

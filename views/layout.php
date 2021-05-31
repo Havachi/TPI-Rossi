@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title><?= $page->title ?></title>
     <link rel="stylesheet" href="content/css/master.css">
     <link rel="stylesheet" href="node_modules\material-design-icons\iconfont\material-icons.css">

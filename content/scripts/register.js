@@ -9,8 +9,10 @@ function showTab(n) {
 
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
+    document.getElementById("regLink").style.display = "block";
   } else {
     document.getElementById("prevBtn").style.display = "inline";
+    document.getElementById("regLink").style.display = "none";
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").style.display = "none";

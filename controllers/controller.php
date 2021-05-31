@@ -30,6 +30,8 @@ class Controller
     $page = new Page($pageName,self::getPageContent("views/pages/" . $pageName . ".php"));
     if ($pageName == "userspaceInfo" || $pageName == "userspaceOrder") {
       $page->addNavbar("views/pageModules/navbarUserspace.php");
+    }elseif ($pageName == "login" || $pageName == "register") {
+      $page->addNavbar("views/pageModules/navbarLogReg.php");
     }else {
       $page->addNavbar("views/pageModules/navbar.php");
     }

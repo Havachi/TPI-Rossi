@@ -13,13 +13,10 @@
           <label for="password">Mot de passe</label>
           <input class="register-form-inputGroup-item" type="password" name="userPassword">
         </div>
-        <div class="register-form-links">
-          <div class="linkToLogin"><u>Déjà inscrit ?<wbr></u> <a href="index.php?action=login">Se connecter</a></div>
-        </div>
       </div>
       <div class="register-form-tab">
         <div class="tab-label">
-          <h3>Information personnelles</h3>
+          <h2>Information personnelles</h2>
         </div>
         <div class="register-form-tab-inputGroup">
           <label for="lastName">Nom de famille</label>
@@ -36,7 +33,7 @@
       </div>
       <div class="register-form-tab">
         <div class="tab-label">
-          <h3>Adresse postale</h3>
+          <h2>Adresse postale</h2>
         </div>
         <div class="register-form-tab-inputGroup">
           <label for="addressRoad">Rue</label>
@@ -62,6 +59,10 @@
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
+      </div>
+
+      <div class="register-form-links" id="regLink">
+        <div class="linkToLogin"><u>Déjà inscrit ?<wbr></u> <a href="index.php?action=login">Se connecter</a></div>
       </div>
     </form>
   </div>

@@ -1,0 +1,13 @@
+@keyframes inputFocusOutlineAnimation {
+  0% ,100% {@include elevationC($primary-color);}
+  50% {@include elevationC(#00FF00);}
+
+}
+
+
+@mixin inputFocusAnimation {
+  animation-name: inputFocusOutlineAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0,1.1,1,.89);
+}

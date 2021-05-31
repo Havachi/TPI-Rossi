@@ -2,10 +2,35 @@
   .homePage{
     .left-container{
       display: none;
-
     }
     .right-container{
       display: none;
+    }
+  }
+
+
+}
+@include media-md{
+  .register{
+
+    &-container{
+      display: block;
+      .register-form{
+        width: 50% !important;
+      }
+    }
+  }
+}
+
+@include media-sm{
+  .register{
+    &-container{
+      .register-form{
+        width: 100% !important;
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+        height: auto !important;
+      }
     }
   }
 }

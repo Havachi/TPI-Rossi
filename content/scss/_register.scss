@@ -5,12 +5,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     .register-form{
+      height: 25rem;
+      width: 20%;
       padding: 1rem;
       margin-top: 15vh;
       background-color: #fff;
-      border: 1px solid black;
+      @include elevation;
+
       &-tab{
+        width: 100%;
         .tab-label{
           text-align: center;
           padding-bottom: 1rem;
@@ -18,14 +23,26 @@
         }
         display: none;
         &-inputGroup{
+          width: 100%;
           padding: 1rem;
           label{
+            width: 100%;
             padding-bottom: 1rem;
             display: block;
+            font-size: 0.8rem
           }
           input{
+            width: 100%;
             padding: 0.5rem;
+            height: 3rem;
             display: block;
+            outline: none;
+            border:none;
+            @include inputOutline;
+            @include transition-cool;
+            &:focus{
+              @include inputOutlineFocused;
+            }
           }
           .consent{
             display: inline;
@@ -71,7 +88,7 @@
         display: block;
         .linkToLogin{
           display: block;
-          font-size: 0.8rem;
+          font-size: 0.7rem;
         }
       }
 
@@ -79,18 +96,20 @@
   }
 }
 .register-form-progress{
+  padding-top: 1rem;
   text-align: center;
   display: block;
   .step {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbbbbb;
+    background-color: $primary-color;
     border: none;
     border-radius: 50%;
     display: inline-block;
-    opacity: 0.5;
-
+    opacity: 0.2;
+    @include transition-cool;
+    @include elevation;
   }
   .step.active {
     opacity: 1;

@@ -21,9 +21,23 @@
   .register-container .register-form {
     width: 50% !important;
   }
+
+  .login-container {
+    display: block;
+  }
+  .login-container .login-form {
+    width: 50% !important;
+  }
 }
 @media screen and (min-width: 0px) and (max-width: 639px) {
   .register-container .register-form {
+    width: 100% !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    height: auto !important;
+  }
+
+  .login-container .login-form {
     width: 100% !important;
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
@@ -313,16 +327,38 @@
 }
 .login-container .login-form-inputGroup label {
   padding-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: block;
 }
 .login-container .login-form-inputGroup input {
-  padding: 0.5rem;
   width: 100%;
+  padding: 0.5rem;
+  height: 3rem;
   display: block;
+  outline: none;
+  border: none;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.52, 1.27);
+}
+.login-container .login-form-inputGroup input:focus {
+  -webkit-box-shadow: 0px 0px 3px 1px #00c853;
+  -moz-box-shadow: 0px 0px 3px 1px #00c853;
+  box-shadow: 0px 0px 3px 1px #00c853;
+  animation-name: inputFocusOutlineAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 1.1, 1, 0.89);
 }
 .login-container .login-form-btns {
-  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 .login-container .login-form-btns button {
   width: 100%;
@@ -334,10 +370,14 @@
   grid-gap: 1rem;
 }
 .login-container .login-form-links .forgotPassword {
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
   display: inline-block;
   font-size: 0.8rem;
 }
 .login-container .login-form-links .linkToRegister {
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
   display: inline-block;
   font-size: 0.8rem;
 }

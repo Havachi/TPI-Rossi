@@ -68,7 +68,7 @@ class Register
   public function createAccount(array $userDataArray){
       $account = new Account($userDataArray);
       try {
-        if (!userExist($userDataArray['userEmailAddress'])) {
+        if (!$this->userExist($userDataArray['userEmailAddress'])) {
           if ($account->registerAccount()) {
             $account->createSession();
             return true;

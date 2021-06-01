@@ -13,7 +13,7 @@
           <td>Montant total</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="userorder-orderlist-body">
         <?php foreach ($pageData['userOrders'] as $userOrder): ?>
           <td><?php echo $userOrder['orderDate']?></td>
           <td><?php echo $userOrder['orderID'] ?></td>

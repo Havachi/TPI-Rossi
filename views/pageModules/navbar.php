@@ -15,15 +15,15 @@ require_once "models/gravatar.php";
         </div>
       </div>
       <div class="navbar-list-nav">
-        <div class="search">
-          <input class="search-bar" type="text" name="search" placeholder="Recherche...">
-          <button type="submit" name="search"><i class="material-icons">search</i></button>
+        <div class="search" disabled>
+          <input class="search-bar" type="text" name="search" placeholder="Recherche..." disabled>
+          <button type="submit" name="search" disabled><i class="material-icons">search</i></button>
         </div>
         <div class="productFullList">
           <a href="index.php">Tous les produits</a>
         </div>
         <div class="productDiscountList">
-          <a href="index.php">Actions</a>
+          <a nohref disabled>Actions</a>
         </div>
       </div>
       <?php if (isset($_SESSION['Account'])): ?>
@@ -66,6 +66,7 @@ require_once "models/gravatar.php";
   </div>
 
   <div class="sm-navbar">
+
     <div class="sm-navbar-container">
     <a nohref name="sidebar-icon" onclick="showSMNavbar()" class="sidebar-btnCollapse">
       <span class="material-icons md-48 menu-icon">menu</span>
@@ -75,7 +76,10 @@ require_once "models/gravatar.php";
     </a>
       <div class="sidebar" id="sidebar">
             <button type="button" onclick="hideSMNavbar()" class="sidebar-quit "><span class="material-icons md-36">clear</span></button>
-            <a class="highlightLink" href="index.php?action=home">Bio Local</a>
+            <a class="highlightLink" href="index.php?action=home">
+              <img class="logo" src="/content/assets/logo/logo.png" alt="BioLocal Logo">
+              <span>Bio Local</span>
+            </a>
 
             <?php if (isset($_SESSION['Token']) && !empty($_SESSION['Token'])): ?>
               <a href="index.php?action=userspace">Espace Client</a>

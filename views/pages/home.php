@@ -42,7 +42,7 @@
               </div>
               <div class="card-separator"></div>
               <div class="card-body">
-                <div class="card-body-title">
+                <div class="product-title">
                   <?php echo $product['productName'] ?>
                 </div>
                 <div class="product-price">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="card-separator"></div>
                     <div class="card-body">
-                      <div class="card-body-title">
+                      <div class="product-title">
                         <?php echo $product['productName'] ?>
                       </div>
                       <div class="product-price">

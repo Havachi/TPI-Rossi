@@ -1,6 +1,10 @@
 <?php
 namespace BioLocal;
 
+/**
+ * This function redirect Post data so when a user refresh the page after completing a form, it doesn't resend the post data. This is called PRG, I implemented it on my own
+ * @param  array $postData Post data received from a form
+ */
 function postRedirect($postData){
   if (isset($postData) && !empty($postData)) {
     if (isset($postData['action']) && !empty($postData['action'])){

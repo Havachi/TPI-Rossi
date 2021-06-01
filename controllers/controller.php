@@ -165,7 +165,7 @@ class Controller
    * @param  integer $step at which step the user is, 1,2,3, 4 and end
    */
   static function checkoutControl($step = 1){
-    require_once "models/checkout.php";
+    require_once 'models/order.class.php';
     $validationTokens = array('cart'=>0,'address'=>0,'payment'=>0,'final'=>0);
     $data = array();
     if (isset($_SESSION) && !empty($_SESSION)) {
@@ -188,6 +188,7 @@ class Controller
           self::displayPage("checkout4");
             break;
           case 'end':
+
             $o = new Order($_SESSION['Account']->getUserID(),$_SESSION['Cart']);
             $o->writeOrder();
             $data['Cart'] = $_SESSION['Cart'];

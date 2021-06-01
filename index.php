@@ -5,14 +5,16 @@ require "models/redirect.php";
 require "models/authentication.php";
 
 session_start();
+
 /**
  * This file is the entry point for this web site.
  * It redirect users request to the right place.
  */
+
+//This redirect all post Data directly where it should go
 if (isset($_POST) && !empty($_POST)) {
   postRedirect($_POST);
 }
-
 
 $request_url = $_SERVER["REQUEST_URI"];
 $control = new Controller($request_url);
@@ -55,7 +57,7 @@ if (isset($_GET) && !empty($_GET)) {
       }
     }
 
-    //Default path
+    //Default path - Home
     if ($control::pageExist($_GET['action'])) {
       $control::displayPage($_GET['action']);
     }else {

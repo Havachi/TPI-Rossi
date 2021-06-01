@@ -16,15 +16,24 @@
     }
   }
   &#{&}-secondary{
-    background-color: $secondary-color;
-    border-color: $secondary-color;
-    color: setTextColor($secondary-color);
+    background-color: transparent;
+    border-color: $primary-color;
+    border-width: 2px;
+    color: setTextColor($primary-color);
+    &:hover{
+      @include elevationHover;
+      background-color:setHoverColor(rgba(0, 200, 83,.07));
+    }
   }
   &#{&}-light{
     padding: 0;
     background-color: #5efc82;
     border-color: #5efc82;
     color: setTextColor(#5efc82);
+    &:hover{
+      @include elevationHover;
+      background-color:setHoverColor(#5efc82);
+    }
   }
   &#{&}-next{
     background-color: $primary-color;

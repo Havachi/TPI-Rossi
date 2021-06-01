@@ -882,15 +882,28 @@
   background-color: #0fb956;
 }
 .btn.btn-secondary {
-  background-color: #c81400;
-  border-color: #c81400;
+  background-color: transparent;
+  border-color: #00c853;
+  border-width: 2px;
   color: #000;
+}
+.btn.btn-secondary:hover {
+  -webkit-box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(15, 185, 86, 0.07);
 }
 .btn.btn-light {
   padding: 0;
   background-color: #5efc82;
   border-color: #5efc82;
   color: #fff;
+}
+.btn.btn-light:hover {
+  -webkit-box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.1);
+  background-color: #6af089;
 }
 .btn.btn-next {
   background-color: #00c853;

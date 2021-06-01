@@ -34,9 +34,9 @@
               <div class="card-header">
                 <div class="card-header-image">
                   <?php if (file_exists("content/assets/products". $product['productImagePath'] . ".jpg")): ?>
-                    <img src="content/assets/products<?php echo  $product['productImagePath'] ?>.jpg" alt="">
+                    <img class="product" onclick="showmodal()" src="content/assets/products<?php echo  $product['productImagePath'] ?>.jpg" alt="">
                     <?php else: ?>
-                    <img src="content/assets/products<?php echo$product['productImagePath']  ?>.png" alt="">
+                    <img class="product" onclick="showmodal()" src="content/assets/products<?php echo$product['productImagePath']  ?>.png" alt="">
                   <?php endif; ?>
                 </div>
               </div>
@@ -69,9 +69,9 @@
                     <div class="card-header">
                       <div class="card-header-image">
                         <?php if (file_exists("content/assets/products". $product['productImagePath'] . ".jpg")): ?>
-                          <img src="content/assets/products<?php echo  $product['productImagePath'] ?>.jpg" alt="">
+                          <img class="product" onclick="showmodal()" src="content/assets/products<?php echo  $product['productImagePath'] ?>.jpg" alt="">
                           <?php else: ?>
-                          <img src="content/assets/products<?php echo $product['productImagePath']  ?>.png" alt="">
+                          <img class="product" onclick="showmodal()" src="content/assets/products<?php echo $product['productImagePath']  ?>.png" alt="">
                         <?php endif; ?>
                       </div>
                     </div>
@@ -107,7 +107,7 @@
     <button type="button" onclick="hideCart()" class="right-container-quit"><span class="material-icons md-36">clear</span></button>
     <div class="cart-container">
       <div class="cart">
-        <h2 class="cart-title">Panier <?php if (!isset($_SESSION['Cart']) || empty($_SESSION['Cart']->cartContent)): ?>Vide<?php endif; ?></h2>
+        <h2 class="cart-title">Panier <?php if (!isset($_SESSION['Cart']) || empty($_SESSION['Cart']->cartContent)): ?>Vide <?php else: ?> <a href="index.php?action=dC"><span class="material-icons" >delete</span></a> <?php endif; ?></h2>
         <table class="cart-list" cellpadding="10">
           <thead class="cart-list-header">
             <tr>
@@ -144,11 +144,26 @@
             </tfoot>
           <?php endif; ?>
         </table>
-        <div class="cart-checkout">
-          <a class="btn btn-primary" href="index.php?action=checkout">Passer à la caisse</a>
-        </div>
+        <?php if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart']->cartContent)): ?>
+          <div class="cart-checkout">
+            <a class="btn btn-primary" href="index.php?action=checkout">Passer à la caisse</a>
+          </div>
+        <?php else: ?>
+          <div class="cart-checkout">
+            <a class="btn btn-disabled" nohref>Passer à la caisse</a>
+          </div>
+        <?php endif; ?>
+
       </div>
     </div>
 
+  </div>
+</div>
+<div onclick="hidemodal()" class="product-modal" id="product-modal">
+  <div class="product-modal-content">
+    <div class="">
+
+    </div>
+    <span class="material-icons close-modal">close</span>
   </div>
 </div>

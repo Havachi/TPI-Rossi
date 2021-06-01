@@ -75,11 +75,18 @@
         display: inline;
         vertical-align: middle;
         padding: 1rem;
+        @include transition-cool;
+
         img{
+          @include animationNeon;
           z-index: 10000;
           border-radius: 100%;
           border: 3px solid $primary-color;
+          &:hover{
+
+          }
         }
+
       }
     }
     &-menu{

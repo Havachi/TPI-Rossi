@@ -35,7 +35,7 @@ class Page
    */
   function __construct(string $title, string $content, array $data = array())
   {
-    $this->title = $title;
+    $this->title =$this->beautifyTitle($title);
     $this->content = $content;
     $this->data = ($data===null) ? "" : $data;
   }
@@ -48,5 +48,20 @@ class Page
     require $navbarPath;
     $navbar = new Navbar(ob_get_clean());
     $this->navbar = $navbar;
+  }
+
+  function beautifyTitle(string $originalTitle){
+    $Translator = array(
+      'home' => 'Bio-Local : Accueil',
+      'login' => 'Connexion',
+      'register' => 'Inscription',
+      'usersapceInfo' => 'Espace Client',
+      'userspaceOrder' => 'Commandes',
+      'checkout1' => 'Caisse',
+      'checkout2' => 'Caisse',
+      'checkout3' => 'Caisse',
+      'checkout4' => 'Caisse'
+    );
+    return $Translator[$originalTitle];
   }
 }

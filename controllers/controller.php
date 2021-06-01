@@ -167,6 +167,7 @@ class Controller
   static function checkoutControl($step = 1){
     require_once "models/checkout.php";
     $validationTokens = array('cart'=>0,'address'=>0,'payment'=>0,'final'=>0);
+    $data = array();
     if (isset($_SESSION) && !empty($_SESSION)) {
       if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart'])) {
         $cart = $_SESSION['Cart']->cartContent;
@@ -187,9 +188,13 @@ class Controller
           self::displayPage("checkout4");
             break;
           case 'end':
-            createOrder();
+            $o = new Order($_SESSION['Account']->getUserID(),$_SESSION['Cart']);
+            $o->writeOrder();
+            $data['Cart'] = $_SESSION['Cart'];
             $_SESSION['Cart'] = new Cart;
-            header('Location: /');
+            // COMBAK: Show confirmation page
+            // COMBAK: Send E-mail Confim
+            header('Location: index.php?action=checkoutDone');
             break;
         }
 

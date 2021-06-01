@@ -14,6 +14,12 @@
 
 }
 @include media-md{
+  .navbar{
+    display: none !important;
+  }
+  .sm-navbar{
+    display: block;
+  }
   .homePage{
     .left-container{
       display: none !important;
@@ -86,7 +92,12 @@
 }
 
 @include media-sm{
-
+  .navbar{
+    display: none;
+  }
+  .sm-navbar{
+    display: block;
+  }
   .homePage{
     display: block !important;
     .left-container{
@@ -95,7 +106,8 @@
 
     //Center container Part
     .center-container{
-      width: 100%;
+      width: 95%;
+      height: 95vh;
       .products-list{
         grid-template-columns: repeat(1,1fr) !important;
       }
@@ -126,7 +138,7 @@
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 25px;
-        color: #fff;
+        color: black;
         display: block;
         transition: 0.3s;
         align-content: center;
@@ -152,7 +164,7 @@
     &-container{
       .login-form{
         width: 100% !important;
-        margin-top: 0rem !important;
+        margin-top: 1rem !important;
         margin-bottom: 2rem !important;
         height: auto !important;
       }

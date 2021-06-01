@@ -18,14 +18,28 @@
       height: 100%;
 
       &-header{
-        background-color: lightgrey;
+        border-radius: 2px;
+        background-color: rgba(240,240,240,1);
         border-bottom: 1px solid black;
-        padding: 1rem;
+        padding: 2rem;
+        @include elevation;
+        tr{
+          &:hover{
+            td{
+              background-color: rgba(240,240,240,0.6);
+            }
+          }
+          td{
+            padding: 1rem;
+          }
+        }
       }
       &-body{
-        margin-top: 5px;
-        td{
-          padding: 10px;
+        border-bottom: 1px solid rgba(240,240,240,1);
+        tr{
+          td{
+            padding: 1rem;
+          }
         }
       }
     }

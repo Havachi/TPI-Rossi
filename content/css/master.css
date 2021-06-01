@@ -60,7 +60,7 @@
   overflow-y: scroll;
   text-align-last: center;
   display: inline-block;
-  height: 100%;
+  height: 80vh;
   width: 100%;
   background-color: lightgrey;
   margin-left: 10px;
@@ -73,6 +73,11 @@
   grid-row-gap: 5px;
   margin: 5px 4px 5px 4px;
 }
+.homePage .center-container .products-list-item .card-body .product-title {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
+}
 .homePage .center-container .products-list-item .card-body .product-price {
   padding-top: 1rem;
   padding-bottom: 0.5rem;
@@ -81,7 +86,7 @@
 }
 .homePage .center-container .products-list-item .card-body .product-rate {
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   text-align-last: left;
 }
 .homePage .center-container .products-list-item .card-body .product-rate .active {
@@ -124,6 +129,10 @@
   box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.1);
 }
 .homePage .right-container .cart-btn.cartwidthChange {
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.52, 1.27);
+}
+.homePage .right-container .cart-btn.cartwidthChange a span {
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.52, 1.27);
   transform: rotate(180deg);
 }
 .homePage .right-container .cart-container {
@@ -185,6 +194,12 @@
 .highlightLink {
   border-bottom: 1px solid rgba(240, 240, 240, 0.2);
   margin-bottom: 1rem;
+}
+.highlightLink .logo {
+  display: inline-block;
+  max-height: 50px;
+  margin: 2px;
+  vertical-align: middle;
 }
 
 .register {
@@ -587,15 +602,25 @@
   height: 100%;
 }
 .userorder-container .userorder-orderlist-header {
-  background-color: lightgrey;
+  border-radius: 2px;
+  background-color: #f0f0f0;
   border-bottom: 1px solid black;
+  padding: 2rem;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.userorder-container .userorder-orderlist-header tr:hover td {
+  background-color: rgba(240, 240, 240, 0.6);
+}
+.userorder-container .userorder-orderlist-header tr td {
   padding: 1rem;
 }
 .userorder-container .userorder-orderlist-body {
-  margin-top: 5px;
+  border-bottom: 1px solid #f0f0f0;
 }
-.userorder-container .userorder-orderlist-body td {
-  padding: 10px;
+.userorder-container .userorder-orderlist-body tr td {
+  padding: 1rem;
 }
 
 .navbar {
@@ -728,9 +753,10 @@
   outline: none;
 }
 .sm-navbar-container .sidebar-btnCollapse .menu-icon {
-  font-size: 2rem;
-  margin-top: 10px;
-  margin-left: 10px;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 10px;
   background-color: #00c853;
 }
 .sm-navbar-container .sidebar {
@@ -894,6 +920,14 @@
   }
 }
 @media screen and (min-width: 640px) and (max-width: 1023px) {
+  .navbar {
+    display: none !important;
+  }
+
+  .sm-navbar {
+    display: block;
+  }
+
   .homePage .left-container {
     display: none !important;
   }
@@ -953,6 +987,14 @@
   }
 }
 @media screen and (min-width: 0px) and (max-width: 639px) {
+  .navbar {
+    display: none;
+  }
+
+  .sm-navbar {
+    display: block;
+  }
+
   .homePage {
     display: block !important;
   }
@@ -960,7 +1002,8 @@
     display: none !important;
   }
   .homePage .center-container {
-    width: 100%;
+    width: 95%;
+    height: 95vh;
   }
   .homePage .center-container .products-list {
     grid-template-columns: repeat(1, 1fr) !important;
@@ -995,7 +1038,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #fff;
+    color: black;
     display: block;
     transition: 0.3s;
     align-content: center;
@@ -1013,7 +1056,7 @@
 
   .login-container .login-form {
     width: 100% !important;
-    margin-top: 0rem !important;
+    margin-top: 1rem !important;
     margin-bottom: 2rem !important;
     height: auto !important;
   }

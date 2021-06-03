@@ -589,6 +589,10 @@
   flex-grow: 0.01;
 }
 .userspace-container .userspace-personnal-avatar img {
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  border: 2px solid #00c853;
   border-radius: 100%;
 }
 .userspace-container .userspace-personnal-info {
@@ -668,11 +672,17 @@
 .userorder-container .userorder-orderlist-header tr td {
   padding: 1rem;
 }
-.userorder-container .userorder-orderlist-body {
+.userorder-container .userorder-orderlist-body tr {
   border-bottom: 1px solid #f0f0f0;
 }
 .userorder-container .userorder-orderlist-body tr td {
   padding: 1rem;
+}
+.userorder-container .userorder-orderlist-body-row-price {
+  white-space: nowrap;
+}
+.userorder-container .userorder-orderlist-body-row-price::after {
+  content: " / CHF";
 }
 
 .navbar {
@@ -760,9 +770,22 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.52, 1.27);
   z-index: 10000;
   border-radius: 100%;
   border: 3px solid #00c853;
+}
+.navbar-list-user .user-avatar img:hover {
+  border: 4px solid #00c853;
+}
+.navbar-list-user .user-avatar:hover::after {
+  position: absolute;
+  top: 65px;
+  right: 29px;
+  color: #00c853;
+  font-size: 2rem;
+  content: "⟱";
+  z-index: 0;
 }
 .navbar-list-menu {
   position: fixed;
@@ -774,24 +797,24 @@
 }
 .navbar-list-menu .menu {
   position: absolute;
-  top: 339px;
-  bottom: 100px;
-  right: 250px;
+  top: 333px;
+  bottom: 10rem;
+  right: 10rem;
   z-index: 1000;
   max-width: 3rem;
   max-height: 100%;
+  white-space: nowrap;
 }
 .navbar-list-menu .menu .menu-container .menu-list {
   z-index: 6000;
   top: 20vh;
-  height: 50%;
   width: auto;
   position: absolute;
   display: flex;
   flex-direction: column;
   min-width: 1px;
   min-height: 1px;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
   background: #fff;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
@@ -799,8 +822,22 @@
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 .navbar-list-menu .menu .menu-container .menu-list-item {
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+  width: 100%;
   pointer-events: all;
-  padding: 1rem;
+  padding: 1rem 0.5rem 1rem 0.4rem;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.5);
+}
+.navbar-list-menu .menu .menu-container .menu-list-item span {
+  color: #00c853;
+  vertical-align: middle;
+  display: inline;
+}
+.navbar-list-menu .menu .menu-container .menu-list-item a {
+  vertical-align: middle;
+  display: inline;
 }
 
 .sm-navbar-container {
@@ -1135,6 +1172,54 @@
   .checkout-btns {
     display: flex;
     flex-direction: column;
+  }
+
+  .userorder-container .userorder-orderlist-header-row-date {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 1rem 0 0 1rem !important;
+  }
+  .userorder-container .userorder-orderlist-header-row-ID {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.5em 0 1rem 1rem !important;
+  }
+  .userorder-container .userorder-orderlist-header-row-status {
+    font-size: 0.8rem;
+  }
+  .userorder-container .userorder-orderlist-header-row-price {
+    font-size: 0.8rem;
+  }
+  .userorder-container .userorder-orderlist-body-row {
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+    padding-top: 1.5rem;
+  }
+  .userorder-container .userorder-orderlist-body-row-date {
+    display: inline-block;
+    padding: 1rem 0 0 1rem !important;
+    text-align-last: left;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .userorder-container .userorder-orderlist-body-row-ID {
+    display: inline-block;
+    padding: 0.5em 0 1rem 1rem !important;
+    font-size: 0.7rem;
+  }
+  .userorder-container .userorder-orderlist-body-row-ID::before {
+    content: "ID: ";
+  }
+  .userorder-container .userorder-orderlist-body-row-status {
+    font-size: 0.8;
+    white-space: nowrap;
+  }
+  .userorder-container .userorder-orderlist-body-row-price {
+    white-space: nowrap;
+  }
+  .userorder-container .userorder-orderlist-body-row-price::after {
+    content: " / CHF";
   }
 }
 body {

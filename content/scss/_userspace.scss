@@ -26,6 +26,8 @@
         margin-right: 1.6rem;
         flex-grow: 0.01;
         img{
+          @include elevation;
+          border:2px solid $primary-color;
           border-radius: 100%;
         }
       }

@@ -89,7 +89,9 @@
       flex-direction: column;
     }
   }
+
 }
+
 
 @include media-sm{
   .navbar{
@@ -177,6 +179,66 @@
     &-btns{
       display: flex;
       flex-direction: column;
+    }
+  }
+  .userorder{
+    &-container{
+
+      .userorder-orderlist{
+
+        &-header{
+          &-row{
+            &-date{
+              display: inline-block;
+              font-size: 0.8rem;
+              padding: 1rem 0 0 1rem !important;
+            }
+            &-ID{
+              display: inline-block;
+              font-size: 0.8rem;
+              padding: 0.5em 0 1rem 1rem !important;
+            }
+            &-status{
+              font-size: 0.8rem;
+            }
+            &-price{
+              font-size: 0.8rem;
+            }
+          }
+        }
+        &-body{
+
+          &-row{
+            @include elevation;
+            padding-top: 1.5rem;
+            &-date{
+              display: inline-block;
+              padding: 1rem 0 0 1rem !important;
+              text-align-last: left;
+              font-size: 0.8rem;
+              white-space: nowrap;
+            }
+            &-ID{
+              display: inline-block;
+              padding: 0.5em 0 1rem 1rem !important;
+              font-size: 0.7rem;
+              &::before{
+                content: 'ID: ';
+              }
+            }
+            &-status{
+              font-size: 0.8;
+              white-space: nowrap;
+            }
+            &-price{
+              white-space: nowrap;
+              &::after{
+                content: " / CHF";
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

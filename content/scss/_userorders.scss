@@ -35,10 +35,18 @@
         }
       }
       &-body{
-        border-bottom: 1px solid rgba(240,240,240,1);
         tr{
+          border-bottom: 1px solid rgba(240,240,240,1);
           td{
             padding: 1rem;
+          }
+        }
+        &-row{
+          &-price{
+            white-space: nowrap;
+            &::after{
+              content: " / CHF";
+            }
           }
         }
       }

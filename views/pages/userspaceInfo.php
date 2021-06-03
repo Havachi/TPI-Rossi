@@ -19,7 +19,7 @@
 
       </div>
       <div class="userspace-personnal-changebtn">
-        <a class="btn btn-primary" href="#">Changer</a>
+        <a class="btn btn-disabled" nohref disabled>Changer</a>
       </div>
     </div>
     <div class="userspace-address">
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="userspace-address-changebtn">
-        <a class="btn btn-primary" href="#">Changer</a>
+        <a class="btn btn-disabled" nohref disabled>Changer</a>
       </div>
     </div>
 

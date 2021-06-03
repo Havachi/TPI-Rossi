@@ -29,7 +29,7 @@ require_once "models/gravatar.php";
       <?php if (isset($_SESSION['Account'])): ?>
         <div class="navbar-list-user">
           <div class="user-name">
-            <a href="#">
+            <a href="index.php?action=userspace&display=info">
               <?php echo $_SESSION['Account']->firstName?>
               <?php echo $_SESSION['Account']->lastName ?>
             </a>
@@ -43,9 +43,11 @@ require_once "models/gravatar.php";
             <div class="menu-container">
               <div class="menu-list">
                 <div class="menu-list-item">
+                  <span class="material-icons">person</span>
                   <a href="index.php?action=userspace">Espace Client</a>
                 </div>
                 <div class="menu-list-item">
+                  <span class="material-icons">exit_to_app</span>
                   <a href="index.php?action=logout">Se déconnecter</a>
                 </div>
               </div>

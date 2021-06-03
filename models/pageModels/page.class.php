@@ -55,7 +55,7 @@ class Page
       'home' => 'Bio-Local : Accueil',
       'login' => 'Connexion',
       'register' => 'Inscription',
-      'usersapceInfo' => 'Espace Client',
+      'userspaceInfo' => 'Espace Client',
       'userspaceOrder' => 'Commandes',
       'checkout1' => 'Caisse',
       'checkout2' => 'Caisse',
